@@ -1,0 +1,8 @@
+{
+  "jobid": 1033,
+  "task_name": "Task103_Example_mednli",
+  "input_name": "text_parts",
+  "label_name": "single_label_multi_class_classification_target",
+  "recommended_truncation_side": "left",
+  "version": "1.0"
+}

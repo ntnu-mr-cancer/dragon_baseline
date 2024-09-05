@@ -1,0 +1,842 @@
+[
+  {
+    "uid":"Task105_case5",
+    "text":"Patient reports shortness of breath, dizziness, fatigue, headache. On examination, irregular heart rate and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case12",
+    "text":"Patient reports joint pain, nausea, fever, headache. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case16",
+    "text":"Patient reports chest pain, fatigue. On examination, chest congestion and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case19",
+    "text":"Patient reports cough, chest pain. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case40",
+    "text":"Patient reports headache, shortness of breath, joint pain. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case42",
+    "text":"Patient reports joint pain, cough, dizziness. On examination, chest congestion and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case47",
+    "text":"Patient reports fatigue, cough, headache, dizziness. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case52",
+    "text":"Patient reports dizziness, cough. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case62",
+    "text":"Patient reports fever, headache, chest pain. On examination, inflamed tonsils and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case64",
+    "text":"Patient reports fatigue. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case71",
+    "text":"Patient reports headache, shortness of breath, dizziness, chest pain. On examination, inflamed tonsils and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case80",
+    "text":"Patient reports fever, headache, cough, dizziness. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case89",
+    "text":"Patient reports cough, nausea, joint pain, fever. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Flu",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case102",
+    "text":"Patient reports headache. On examination, swollen lymph nodes and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case103",
+    "text":"Patient reports fatigue, nausea, fever, dizziness. On examination, swollen lymph nodes and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case105",
+    "text":"Patient reports nausea. On examination, swollen lymph nodes and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case106",
+    "text":"Patient reports dizziness, fever, joint pain. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case134",
+    "text":"Patient reports shortness of breath, dizziness, cough, nausea. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case150",
+    "text":"Patient reports shortness of breath. On examination, high blood pressure and swollen lymph nodes was noted.Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Advise regular exercise. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise regular exercise. Schedule follow-up in two weeks. Suggest dietary changes. Recommend further testing. Suggest dietary changes. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Recommend further testing. Recommend further testing. Recommend further testing. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Advise regular exercise. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Suggest dietary changes. Recommend further testing. Advise patient to increase fluid intake. Suggest dietary changes. Advise regular exercise. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case153",
+    "text":"Patient reports nausea, shortness of breath, headache, chest pain. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case156",
+    "text":"Patient reports chest pain. On examination, irregular heart rate and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case166",
+    "text":"Patient reports fever, shortness of breath. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case175",
+    "text":"Patient reports nausea. On examination, irregular heart rate and swollen lymph nodes was noted.Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Suggest dietary changes. Advise regular exercise. Recommend further testing. Suggest dietary changes. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Recommend further testing. Prescribe rest and over-the-counter medication. Recommend further testing. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Suggest dietary changes. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Advise patient to increase fluid intake. Recommend further testing. Advise regular exercise. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise. Prescribe rest and over-the-counter medication. Suggest dietary changes. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case180",
+    "text":"Patient reports fever, headache. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case189",
+    "text":"Patient reports joint pain, cough, fatigue, nausea. On examination, inflamed tonsils and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case190",
+    "text":"Patient reports cough, joint pain, fatigue. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case197",
+    "text":"Patient reports fatigue, nausea. On examination, chest congestion and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case201",
+    "text":"Patient reports chest pain. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case202",
+    "text":"Patient reports shortness of breath, dizziness, fatigue, chest pain. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case205",
+    "text":"Patient reports cough, fatigue, shortness of breath. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case214",
+    "text":"Patient reports dizziness, nausea. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case235",
+    "text":"Patient reports shortness of breath. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case238",
+    "text":"Patient reports chest pain, fatigue, nausea, fever. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case242",
+    "text":"Patient reports joint pain, dizziness, shortness of breath. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case244",
+    "text":"Patient reports cough, nausea, headache. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case253",
+    "text":"Patient reports shortness of breath, nausea, cough, fever. On examination, high blood pressure and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case255",
+    "text":"Patient reports shortness of breath, headache, joint pain, fatigue. On examination, irregular heart rate and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case267",
+    "text":"Patient reports chest pain, fever. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case275",
+    "text":"Patient reports chest pain, dizziness, nausea, shortness of breath. On examination, high blood pressure and inflamed tonsils was noted.Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Suggest dietary changes. Advise patient to increase fluid intake. Suggest dietary changes. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Suggest dietary changes. Advise regular exercise. Schedule follow-up in two weeks. Recommend further testing. Advise regular exercise. Recommend further testing. Recommend further testing. Schedule follow-up in two weeks. Recommend further testing. Advise regular exercise. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise regular exercise. Suggest dietary changes. Advise patient to increase fluid intake. Recommend further testing. Suggest dietary changes. Advise regular exercise. Advise regular exercise. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Advise patient to increase fluid intake. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Recommend further testing. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case288",
+    "text":"Patient reports dizziness, nausea, fatigue. On examination, inflamed tonsils and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case293",
+    "text":"Patient reports fever, joint pain, cough. On examination, high blood pressure and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case301",
+    "text":"Patient reports joint pain, dizziness. On examination, chest congestion and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case310",
+    "text":"Patient reports chest pain, fatigue, joint pain. On examination, chest congestion and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case312",
+    "text":"Patient reports dizziness. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case313",
+    "text":"Patient reports dizziness. On examination, chest congestion and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case318",
+    "text":"Patient reports dizziness, headache, chest pain, nausea. On examination, swollen lymph nodes and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Migraine",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case322",
+    "text":"Patient reports nausea. On examination, inflamed tonsils and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case327",
+    "text":"Patient reports fatigue, shortness of breath, dizziness, fever. On examination, irregular heart rate and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case337",
+    "text":"Patient reports joint pain. On examination, chest congestion and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case339",
+    "text":"Patient reports headache, fatigue, shortness of breath. On examination, inflamed tonsils and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case351",
+    "text":"Patient reports headache, chest pain, cough. On examination, irregular heart rate and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case354",
+    "text":"Patient reports fever, cough. On examination, irregular heart rate and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case374",
+    "text":"Patient reports shortness of breath, dizziness, cough, joint pain. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case376",
+    "text":"Patient reports dizziness. On examination, swollen lymph nodes and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case379",
+    "text":"Patient reports cough. On examination, chest congestion and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case382",
+    "text":"Patient reports shortness of breath. On examination, irregular heart rate and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case389",
+    "text":"Patient reports shortness of breath, fever, fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case407",
+    "text":"Patient reports joint pain. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case410",
+    "text":"Patient reports nausea, shortness of breath, chest pain. On examination, high blood pressure and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case411",
+    "text":"Patient reports cough. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case414",
+    "text":"Patient reports fever. On examination, chest congestion and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case417",
+    "text":"Patient reports fever, joint pain, chest pain, headache. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case424",
+    "text":"Patient reports joint pain, cough, shortness of breath, nausea. On examination, swollen lymph nodes and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case437",
+    "text":"Patient reports headache, nausea, cough, dizziness. On examination, irregular heart rate and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Migraine",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case461",
+    "text":"Patient reports joint pain, fatigue. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case474",
+    "text":"Patient reports fatigue. On examination, irregular heart rate and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case475",
+    "text":"Patient reports fever, joint pain. On examination, inflamed tonsils and high blood pressure was noted.Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Recommend further testing. Suggest dietary changes. Recommend further testing. Suggest dietary changes. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise regular exercise. Advise patient to increase fluid intake. Advise regular exercise. Recommend further testing. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise regular exercise. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise patient to increase fluid intake. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Recommend further testing. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Advise regular exercise. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Suggest dietary changes. Suggest dietary changes.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case488",
+    "text":"Patient reports nausea, chest pain, fever, joint pain. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case496",
+    "text":"Patient reports fever, chest pain. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case511",
+    "text":"Patient reports cough, joint pain. On examination, irregular heart rate and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case514",
+    "text":"Patient reports shortness of breath, cough, nausea. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case520",
+    "text":"Patient reports chest pain. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case533",
+    "text":"Patient reports nausea. On examination, swollen lymph nodes and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case546",
+    "text":"Patient reports fatigue. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case547",
+    "text":"Patient reports shortness of breath, chest pain, headache, fever. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case550",
+    "text":"Patient reports cough, shortness of breath. On examination, irregular heart rate and high blood pressure was noted.Advise patient to increase fluid intake. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Advise regular exercise. Advise regular exercise. Suggest dietary changes. Recommend further testing. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Recommend further testing. Schedule follow-up in two weeks. Advise regular exercise. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Recommend further testing. Advise regular exercise. Recommend further testing. Recommend further testing. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Suggest dietary changes. Recommend further testing. Schedule follow-up in two weeks. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise regular exercise. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Suggest dietary changes. Recommend further testing. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Recommend further testing. Schedule follow-up in two weeks. Advise regular exercise. Recommend further testing. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Recommend further testing. Suggest dietary changes. Advise patient to increase fluid intake. Suggest dietary changes. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise regular exercise.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case561",
+    "text":"Patient reports headache, nausea, dizziness, fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Migraine",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case566",
+    "text":"Patient reports fever. On examination, chest congestion and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case571",
+    "text":"Patient reports shortness of breath, headache. On examination, chest congestion and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case577",
+    "text":"Patient reports nausea, dizziness, fever, fatigue. On examination, swollen lymph nodes and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case584",
+    "text":"Patient reports headache, fever. On examination, high blood pressure and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case585",
+    "text":"Patient reports headache. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case586",
+    "text":"Patient reports fatigue, nausea. On examination, chest congestion and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case594",
+    "text":"Patient reports fever, fatigue, chest pain, joint pain. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Pneumonia",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case598",
+    "text":"Patient reports headache, dizziness, nausea, cough. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Migraine",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case607",
+    "text":"Patient reports headache, chest pain, cough. On examination, irregular heart rate and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case608",
+    "text":"Patient reports fatigue, nausea. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case619",
+    "text":"Patient reports shortness of breath. On examination, swollen lymph nodes and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case624",
+    "text":"Patient reports dizziness. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case635",
+    "text":"Patient reports cough. On examination, inflamed tonsils and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Common Cold",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case638",
+    "text":"Patient reports joint pain. On examination, high blood pressure and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case642",
+    "text":"Patient reports fatigue, fever, cough, joint pain. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case645",
+    "text":"Patient reports dizziness, joint pain. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case652",
+    "text":"Patient reports dizziness, fever, chest pain, nausea. On examination, high blood pressure and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Heart Disease",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case671",
+    "text":"Patient reports dizziness, joint pain, headache, shortness of breath. On examination, swollen lymph nodes and chest congestion was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "pain killers"
+    ]
+  },
+  {
+    "uid":"Task105_case674",
+    "text":"Patient reports fatigue, fever. On examination, irregular heart rate and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case675",
+    "text":"Patient reports shortness of breath, chest pain. On examination, high blood pressure and swollen lymph nodes was noted.Advise regular exercise. Advise regular exercise. Suggest dietary changes. Advise regular exercise. Advise regular exercise. Recommend further testing. Advise regular exercise. Recommend further testing. Recommend further testing. Suggest dietary changes. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Schedule follow-up in two weeks. Recommend further testing. Suggest dietary changes. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Suggest dietary changes. Suggest dietary changes. Advise regular exercise. Recommend further testing. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Recommend further testing. Advise regular exercise. Suggest dietary changes. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Recommend further testing. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise regular exercise. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case681",
+    "text":"Patient reports nausea, fatigue. On examination, chest congestion and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case692",
+    "text":"Patient reports shortness of breath. On examination, chest congestion and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case694",
+    "text":"Patient reports fatigue, dizziness. On examination, chest congestion and irregular heart rate was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  {
+    "uid":"Task105_case699",
+    "text":"Patient reports shortness of breath, fatigue. On examination, inflamed tonsils and high blood pressure was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case706",
+    "text":"Patient reports fever, shortness of breath, fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case719",
+    "text":"Patient reports fatigue, nausea. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "beta blockers"
+    ]
+  },
+  {
+    "uid":"Task105_case732",
+    "text":"Patient reports fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Unknown",
+      "antibiotics"
+    ]
+  },
+  {
+    "uid":"Task105_case733",
+    "text":"Patient reports nausea, joint pain. On examination, high blood pressure and inflamed tonsils was noted.",
+    "multi_label_multi_class_classification_target":[
+      "Arthritis",
+      "beta blockers"
+    ]
+  }
+]

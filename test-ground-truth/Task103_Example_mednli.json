@@ -1,0 +1,722 @@
+[
+  {
+    "uid":"Task103_case0",
+    "text_parts":[
+      "The patient has a high fever.",
+      "The patient is ill."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case4",
+    "text_parts":[
+      "MRI results indicate a brain tumor.",
+      "There's an abnormal growth in the patient's brain."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case9",
+    "text_parts":[
+      "The patient has been diagnosed with hypertension.",
+      "The patient suffers from a high blood pressure condition."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case10",
+    "text_parts":[
+      "The biopsy indicates malignant cells.",
+      "The patient has cancer cells."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case12",
+    "text_parts":[
+      "Blood tests show elevated cholesterol levels.",
+      "The patient has high lipid levels in the blood."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case15",
+    "text_parts":[
+      "The ultrasound shows gallstones.",
+      "The patient has stones in the gallbladder."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case18",
+    "text_parts":[
+      "The patient experiences frequent episodes of dizziness.",
+      "The patient might have issues with balance or circulation."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case22",
+    "text_parts":[
+      "The patient's thyroid levels are elevated.",
+      "The patient has an overactive thyroid."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case26",
+    "text_parts":[
+      "Prenatal tests indicate the fetus is developing normally.",
+      "The fetus is not showing signs of abnormalities."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case30",
+    "text_parts":[
+      "The patient frequently experiences episodes of blurred vision.",
+      "The patient might need eye care."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case31",
+    "text_parts":[
+      "Blood tests indicate signs of kidney dysfunction.",
+      "The patient's kidneys might not be working optimally."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case33",
+    "text_parts":[
+      "The patient's spinal MRI reveals a herniated disc.",
+      "The patient has a spine issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case39",
+    "text_parts":[
+      "The patient's liver enzymes are elevated.",
+      "There might be issues with the patient's liver function."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case40",
+    "text_parts":[
+      "The patient's blood sample revealed a malaria parasite.",
+      "The patient might have malaria."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case42",
+    "text_parts":[
+      "The EEG test indicates irregular brainwave activity.",
+      "The patient's brain activity is not normal."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case44",
+    "text_parts":[
+      "The patient's blood sugar levels are consistently high.",
+      "The patient may have diabetes."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case45",
+    "text_parts":[
+      "Biopsy results indicate benign growth on the skin.",
+      "The growth on the patient's skin is not cancerous."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case53",
+    "text_parts":[
+      "The patient displays symptoms of hypothyroidism.",
+      "The patient's thyroid is underactive."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case55",
+    "text_parts":[
+      "The patient reports sudden weight gain and facial puffiness.",
+      "The patient might have Cushing's syndrome."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case69",
+    "text_parts":[
+      "The patient's potassium levels are higher than average.",
+      "The patient may have hyperkalemia."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case70",
+    "text_parts":[
+      "The patient complains of recurrent ear infections.",
+      "The patient has issues related to the ears."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case72",
+    "text_parts":[
+      "The patient presents with decreased sensitivity in their fingertips.",
+      "The patient might have nerve damage or neuropathy."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case73",
+    "text_parts":[
+      "The patient's echocardiogram shows a weakened heart muscle.",
+      "The patient has a heart condition."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case76",
+    "text_parts":[
+      "The patient frequently experiences shortness of breath during light activity.",
+      "The patient may have a respiratory or cardiac condition."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case77",
+    "text_parts":[
+      "The patient shows symptoms consistent with polycystic ovary syndrome (PCOS).",
+      "The patient may have a reproductive health issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case80",
+    "text_parts":[
+      "The patient has been diagnosed with rheumatoid arthritis.",
+      "The patient might suffer from joint pain and inflammation."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case83",
+    "text_parts":[
+      "The patient has been experiencing frequent migraines.",
+      "The patient frequently experiences severe headaches."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case88",
+    "text_parts":[
+      "The patient is on anticoagulant therapy.",
+      "The patient is on medication to prevent blood clots."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case90",
+    "text_parts":[
+      "The patient has a family history of glaucoma.",
+      "The patient may be at risk of developing eye problems."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case96",
+    "text_parts":[
+      "The patient suffers from chronic sinusitis.",
+      "The patient has inflammation of the sinuses."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case100",
+    "text_parts":[
+      "The patient has a high fever.",
+      "The patient is in perfect health."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case104",
+    "text_parts":[
+      "MRI results indicate a brain tumor.",
+      "There's no issue found in the MRI scan."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case109",
+    "text_parts":[
+      "The patient has been diagnosed with hypertension.",
+      "The patient's blood pressure is normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case110",
+    "text_parts":[
+      "The biopsy indicates malignant cells.",
+      "There are no signs of cancer."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case112",
+    "text_parts":[
+      "Blood tests show elevated cholesterol levels.",
+      "The patient's cholesterol levels are low."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case115",
+    "text_parts":[
+      "The ultrasound shows gallstones.",
+      "The ultrasound shows a clear gallbladder."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case118",
+    "text_parts":[
+      "The patient experiences frequent episodes of dizziness.",
+      "The patient is always stable and never dizzy."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case122",
+    "text_parts":[
+      "The patient's thyroid levels are elevated.",
+      "The patient's thyroid levels are perfectly normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case126",
+    "text_parts":[
+      "Prenatal tests indicate the fetus is developing normally.",
+      "There are complications with the fetus's development."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case130",
+    "text_parts":[
+      "The patient frequently experiences episodes of blurred vision.",
+      "The patient's vision is crystal clear."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case131",
+    "text_parts":[
+      "Blood tests indicate signs of kidney dysfunction.",
+      "The patient's kidney functions are optimal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case133",
+    "text_parts":[
+      "The patient's spinal MRI reveals a herniated disc.",
+      "The patient's spine is in perfect condition."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case139",
+    "text_parts":[
+      "The patient's liver enzymes are elevated.",
+      "The patient's liver functions are within normal range."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case140",
+    "text_parts":[
+      "The patient's blood sample revealed a malaria parasite.",
+      "The patient has no signs of infection."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case142",
+    "text_parts":[
+      "The EEG test indicates irregular brainwave activity.",
+      "The EEG test results are normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case144",
+    "text_parts":[
+      "The patient's blood sugar levels are consistently high.",
+      "The patient's blood sugar levels are normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case145",
+    "text_parts":[
+      "Biopsy results indicate benign growth on the skin.",
+      "The skin growth is malignant."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case153",
+    "text_parts":[
+      "The patient displays symptoms of hypothyroidism.",
+      "The patient has hyperthyroidism."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case155",
+    "text_parts":[
+      "The patient reports sudden weight gain and facial puffiness.",
+      "The patient has maintained a consistent weight."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case169",
+    "text_parts":[
+      "The patient's potassium levels are higher than average.",
+      "The patient's potassium levels are extremely low."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case170",
+    "text_parts":[
+      "The patient complains of recurrent ear infections.",
+      "The patient has perfectly healthy ears."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case172",
+    "text_parts":[
+      "The patient presents with decreased sensitivity in their fingertips.",
+      "The patient has a heightened sensitivity in their fingertips."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case173",
+    "text_parts":[
+      "The patient's echocardiogram shows a weakened heart muscle.",
+      "The patient's heart muscle is robust and strong."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case176",
+    "text_parts":[
+      "The patient frequently experiences shortness of breath during light activity.",
+      "The patient never experiences breathing difficulties."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case177",
+    "text_parts":[
+      "The patient shows symptoms consistent with polycystic ovary syndrome (PCOS).",
+      "The patient shows no signs related to PCOS."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case180",
+    "text_parts":[
+      "The patient has been diagnosed with rheumatoid arthritis.",
+      "The patient has perfectly healthy joints."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case183",
+    "text_parts":[
+      "The patient has been experiencing frequent migraines.",
+      "The patient has never experienced a headache."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case188",
+    "text_parts":[
+      "The patient is on anticoagulant therapy.",
+      "The patient is not on any blood-related medication."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case190",
+    "text_parts":[
+      "The patient has a family history of glaucoma.",
+      "No one in the patient's family has ever had eye problems."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case196",
+    "text_parts":[
+      "The patient suffers from chronic sinusitis.",
+      "The patient has perfectly clear sinuses."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case200",
+    "text_parts":[
+      "The patient has a high fever.",
+      "The patient recently visited Africa."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case204",
+    "text_parts":[
+      "MRI results indicate a brain tumor.",
+      "The patient is concerned about potential side effects."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case209",
+    "text_parts":[
+      "The patient has been diagnosed with hypertension.",
+      "The patient works in a high-stress job."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case210",
+    "text_parts":[
+      "The biopsy indicates malignant cells.",
+      "The patient enjoys reading in their spare time."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case212",
+    "text_parts":[
+      "Blood tests show elevated cholesterol levels.",
+      "The patient doesn't consume alcohol."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case215",
+    "text_parts":[
+      "The ultrasound shows gallstones.",
+      "The patient's favorite color is blue."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case218",
+    "text_parts":[
+      "The patient experiences frequent episodes of dizziness.",
+      "The patient is considering changing their diet."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case222",
+    "text_parts":[
+      "The patient's thyroid levels are elevated.",
+      "The patient plans to attend a wedding next week."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case226",
+    "text_parts":[
+      "Prenatal tests indicate the fetus is developing normally.",
+      "The patient expressed interest in traveling to Asia."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case230",
+    "text_parts":[
+      "The patient frequently experiences episodes of blurred vision.",
+      "The patient plans to buy a new car soon."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case231",
+    "text_parts":[
+      "Blood tests indicate signs of kidney dysfunction.",
+      "The patient enjoys attending theater performances."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case233",
+    "text_parts":[
+      "The patient's spinal MRI reveals a herniated disc.",
+      "The patient's favorite holiday is Christmas."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case239",
+    "text_parts":[
+      "The patient's liver enzymes are elevated.",
+      "The patient enjoys watching historical documentaries."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case240",
+    "text_parts":[
+      "The patient's blood sample revealed a malaria parasite.",
+      "The patient enjoys playing chess."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case242",
+    "text_parts":[
+      "The EEG test indicates irregular brainwave activity.",
+      "The patient's favorite movie genre is comedy."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case244",
+    "text_parts":[
+      "The patient's blood sugar levels are consistently high.",
+      "The patient is planning to learn how to cook Italian dishes."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case245",
+    "text_parts":[
+      "Biopsy results indicate benign growth on the skin.",
+      "The patient recently went on a hiking trip."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case253",
+    "text_parts":[
+      "The patient displays symptoms of hypothyroidism.",
+      "The patient recently started gardening."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case255",
+    "text_parts":[
+      "The patient reports sudden weight gain and facial puffiness.",
+      "The patient recently attended a pottery workshop."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case269",
+    "text_parts":[
+      "The patient's potassium levels are higher than average.",
+      "The patient enjoys camping during summers."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case270",
+    "text_parts":[
+      "The patient complains of recurrent ear infections.",
+      "The patient is a fan of impressionist art."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case272",
+    "text_parts":[
+      "The patient presents with decreased sensitivity in their fingertips.",
+      "The patient is considering adopting a parrot."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case273",
+    "text_parts":[
+      "The patient's echocardiogram shows a weakened heart muscle.",
+      "The patient has started learning ballroom dancing."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case276",
+    "text_parts":[
+      "The patient frequently experiences shortness of breath during light activity.",
+      "The patient has expressed interest in sailing."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case277",
+    "text_parts":[
+      "The patient shows symptoms consistent with polycystic ovary syndrome (PCOS).",
+      "The patient recently visited a vineyard."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case280",
+    "text_parts":[
+      "The patient has been diagnosed with rheumatoid arthritis.",
+      "The patient is an avid mountain climber."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case283",
+    "text_parts":[
+      "The patient has been experiencing frequent migraines.",
+      "The patient is planning a trip to the Maldives."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case288",
+    "text_parts":[
+      "The patient is on anticoagulant therapy.",
+      "The patient is learning to speak Spanish."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case290",
+    "text_parts":[
+      "The patient has a family history of glaucoma.",
+      "The patient loves winter sports, especially skiing."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case296",
+    "text_parts":[
+      "The patient suffers from chronic sinusitis.",
+      "The patient's favorite color is turquoise."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  }
+]

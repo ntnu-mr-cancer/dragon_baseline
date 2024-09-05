@@ -1,0 +1,14 @@
+test/
+.git/
+*.tar.gz
+input/
+output/
+test-input/
+test-output/
+test-output-expected/
+test-workdir/
+build.sh
+export.sh
+test.sh
+train.sh
+train-test.sh

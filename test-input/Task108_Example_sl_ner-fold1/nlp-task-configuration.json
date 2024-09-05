@@ -1,0 +1,8 @@
+{
+  "jobid": 1081,
+  "task_name": "Task108_Example_sl_ner",
+  "input_name": "text_parts",
+  "label_name": "named_entity_recognition_target",
+  "recommended_truncation_side": "right",
+  "version": "1.0"
+}

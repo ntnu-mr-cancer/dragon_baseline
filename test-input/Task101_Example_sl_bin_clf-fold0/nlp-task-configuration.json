@@ -1,0 +1,8 @@
+{
+  "jobid": 1010,
+  "task_name": "Task101_Example_sl_bin_clf",
+  "input_name": "text",
+  "label_name": "single_label_binary_classification_target",
+  "recommended_truncation_side": "left",
+  "version": "1.0"
+}

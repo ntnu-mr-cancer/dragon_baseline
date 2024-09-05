@@ -1,0 +1,338 @@
+[
+  {
+    "uid":"Task103_case5",
+    "text_parts":[
+      "The patient presents with chest pain.",
+      "The patient may have a heart issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case8",
+    "text_parts":[
+      "Blood tests indicate low iron levels.",
+      "The patient might be anemic."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case13",
+    "text_parts":[
+      "The patient's bone density is lower than average.",
+      "The patient has weak bones."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case20",
+    "text_parts":[
+      "The patient tested positive for the flu.",
+      "The patient is infected with an influenza virus."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case25",
+    "text_parts":[
+      "The patient is experiencing episodes of memory loss.",
+      "The patient might be experiencing cognitive challenges."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case28",
+    "text_parts":[
+      "The patient complains of severe abdominal pain after eating.",
+      "The patient has digestive complaints."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case37",
+    "text_parts":[
+      "The patient is recovering from a recent appendectomy.",
+      "The patient recently had a surgical procedure."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case54",
+    "text_parts":[
+      "Lab results show low platelet count in the patient's blood.",
+      "The patient is at risk of bleeding easily."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case57",
+    "text_parts":[
+      "There's an abnormal growth in the patient's pancreas, as shown by ultrasound.",
+      "The patient may have a pancreatic tumor."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case58",
+    "text_parts":[
+      "The patient complains of chronic fatigue.",
+      "The patient feels tired most of the time."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case65",
+    "text_parts":[
+      "The patient's vitamin B12 levels are considerably low.",
+      "The patient may have a deficiency that affects nerve function."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case71",
+    "text_parts":[
+      "Lab results indicate an imbalance in the patient's electrolytes.",
+      "The patient may have a hydration or kidney problem."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case81",
+    "text_parts":[
+      "The X-ray shows a fracture in the patient's forearm.",
+      "The patient has a broken bone in their arm."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case82",
+    "text_parts":[
+      "The patient's recent blood work indicates anemia.",
+      "The patient has a lower-than-normal number of red blood cells."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case105",
+    "text_parts":[
+      "The patient presents with chest pain.",
+      "The patient has no cardiovascular complaints."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case108",
+    "text_parts":[
+      "Blood tests indicate low iron levels.",
+      "The patient has optimal iron levels."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case113",
+    "text_parts":[
+      "The patient's bone density is lower than average.",
+      "The patient's bones are of average density."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case120",
+    "text_parts":[
+      "The patient tested positive for the flu.",
+      "The patient doesn't have the flu."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case125",
+    "text_parts":[
+      "The patient is experiencing episodes of memory loss.",
+      "The patient has a sharp memory."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case128",
+    "text_parts":[
+      "The patient complains of severe abdominal pain after eating.",
+      "The patient digests food without any problems."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case137",
+    "text_parts":[
+      "The patient is recovering from a recent appendectomy.",
+      "The patient has never undergone surgery."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case154",
+    "text_parts":[
+      "Lab results show low platelet count in the patient's blood.",
+      "The patient's platelet count is high."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case157",
+    "text_parts":[
+      "There's an abnormal growth in the patient's pancreas, as shown by ultrasound.",
+      "The patient's pancreas is clear of any growths."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case158",
+    "text_parts":[
+      "The patient complains of chronic fatigue.",
+      "The patient feels energetic all the time."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case165",
+    "text_parts":[
+      "The patient's vitamin B12 levels are considerably low.",
+      "The patient's vitamin B12 levels are perfectly normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case171",
+    "text_parts":[
+      "Lab results indicate an imbalance in the patient's electrolytes.",
+      "The patient's electrolyte levels are perfectly balanced."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case181",
+    "text_parts":[
+      "The X-ray shows a fracture in the patient's forearm.",
+      "The patient's forearm is completely intact."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case182",
+    "text_parts":[
+      "The patient's recent blood work indicates anemia.",
+      "The patient has a high red blood cell count."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case205",
+    "text_parts":[
+      "The patient presents with chest pain.",
+      "The patient is planning a vacation next month."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case208",
+    "text_parts":[
+      "Blood tests indicate low iron levels.",
+      "The patient has two children."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case213",
+    "text_parts":[
+      "The patient's bone density is lower than average.",
+      "The patient had surgery two years ago."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case220",
+    "text_parts":[
+      "The patient tested positive for the flu.",
+      "The patient is considering a career change."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case225",
+    "text_parts":[
+      "The patient is experiencing episodes of memory loss.",
+      "The patient is a fan of classical music."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case228",
+    "text_parts":[
+      "The patient complains of severe abdominal pain after eating.",
+      "The patient loves to bake during weekends."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case237",
+    "text_parts":[
+      "The patient is recovering from a recent appendectomy.",
+      "The patient volunteers at a local animal shelter."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case254",
+    "text_parts":[
+      "Lab results show low platelet count in the patient's blood.",
+      "The patient loves watching detective series on TV."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case257",
+    "text_parts":[
+      "There's an abnormal growth in the patient's pancreas, as shown by ultrasound.",
+      "The patient's favorite fruit is mango."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case258",
+    "text_parts":[
+      "The patient complains of chronic fatigue.",
+      "The patient is learning to play the piano."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case265",
+    "text_parts":[
+      "The patient's vitamin B12 levels are considerably low.",
+      "The patient is thinking of renovating their kitchen."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case271",
+    "text_parts":[
+      "Lab results indicate an imbalance in the patient's electrolytes.",
+      "The patient enjoys cooking Thai food."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case281",
+    "text_parts":[
+      "The X-ray shows a fracture in the patient's forearm.",
+      "The patient recently baked a chocolate cake."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case282",
+    "text_parts":[
+      "The patient's recent blood work indicates anemia.",
+      "The patient is interested in ancient history."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  }
+]

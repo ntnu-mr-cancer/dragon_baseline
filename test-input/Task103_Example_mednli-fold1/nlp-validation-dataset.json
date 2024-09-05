@@ -1,0 +1,338 @@
+[
+  {
+    "uid":"Task103_case11",
+    "text_parts":[
+      "The patient has reported frequent headaches.",
+      "The patient is experiencing pain in the head."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case24",
+    "text_parts":[
+      "The skin test revealed an allergic reaction to pollen.",
+      "The patient is allergic to something in the environment."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case43",
+    "text_parts":[
+      "The patient is showing classic signs of chickenpox.",
+      "The patient has a contagious skin disease."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case47",
+    "text_parts":[
+      "Lab results show the patient has high levels of uric acid.",
+      "The patient could have gout."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case51",
+    "text_parts":[
+      "The endoscopy revealed inflammation in the patient's esophagus.",
+      "The patient might have esophagitis."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case52",
+    "text_parts":[
+      "The patient's reflexes are slower than normal.",
+      "The patient's nervous system might not be functioning optimally."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case59",
+    "text_parts":[
+      "Lab tests show elevated levels of calcium in the patient's blood.",
+      "The patient might have hypercalcemia."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case61",
+    "text_parts":[
+      "The patient has consistent ringing in their left ear.",
+      "The patient may have tinnitus in the left ear."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case63",
+    "text_parts":[
+      "The patient has wounds on their feet that are slow to heal.",
+      "The patient's foot wounds aren't healing properly."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case66",
+    "text_parts":[
+      "The patient has been experiencing bouts of nausea and vomiting.",
+      "The patient might have a digestive system issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case78",
+    "text_parts":[
+      "The patient has elevated bilirubin levels.",
+      "The patient might have a liver condition."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case84",
+    "text_parts":[
+      "The MRI reveals a lesion in the patient's brain.",
+      "There's an abnormality in the patient's brain."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case85",
+    "text_parts":[
+      "The patient's blood pressure readings have been consistently elevated.",
+      "The patient might be at risk for cardiovascular diseases."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case91",
+    "text_parts":[
+      "There's a high concentration of ketones in the patient's urine.",
+      "The patient may be in a state of ketosis."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case111",
+    "text_parts":[
+      "The patient has reported frequent headaches.",
+      "The patient has never complained about headaches."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case124",
+    "text_parts":[
+      "The skin test revealed an allergic reaction to pollen.",
+      "The patient has no allergies."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case143",
+    "text_parts":[
+      "The patient is showing classic signs of chickenpox.",
+      "The patient has clear skin without any spots."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case147",
+    "text_parts":[
+      "Lab results show the patient has high levels of uric acid.",
+      "The patient's uric acid levels are within a normal range."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case151",
+    "text_parts":[
+      "The endoscopy revealed inflammation in the patient's esophagus.",
+      "The patient's esophagus is in perfect condition."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case152",
+    "text_parts":[
+      "The patient's reflexes are slower than normal.",
+      "The patient has quick and responsive reflexes."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case159",
+    "text_parts":[
+      "Lab tests show elevated levels of calcium in the patient's blood.",
+      "The patient's calcium levels are low."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case161",
+    "text_parts":[
+      "The patient has consistent ringing in their left ear.",
+      "The patient has never had any auditory issues."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case163",
+    "text_parts":[
+      "The patient has wounds on their feet that are slow to heal.",
+      "The patient's wounds heal rapidly."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case166",
+    "text_parts":[
+      "The patient has been experiencing bouts of nausea and vomiting.",
+      "The patient has a strong stomach and never vomits."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case178",
+    "text_parts":[
+      "The patient has elevated bilirubin levels.",
+      "The patient's bilirubin levels are extremely low."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case184",
+    "text_parts":[
+      "The MRI reveals a lesion in the patient's brain.",
+      "The patient's brain MRI came back clear."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case185",
+    "text_parts":[
+      "The patient's blood pressure readings have been consistently elevated.",
+      "The patient always has low blood pressure."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case191",
+    "text_parts":[
+      "There's a high concentration of ketones in the patient's urine.",
+      "The patient's urine is free of ketones."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case211",
+    "text_parts":[
+      "The patient has reported frequent headaches.",
+      "The patient has a cat at home."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case224",
+    "text_parts":[
+      "The skin test revealed an allergic reaction to pollen.",
+      "The patient recently adopted a pet rabbit."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case243",
+    "text_parts":[
+      "The patient is showing classic signs of chickenpox.",
+      "The patient is thinking of adopting a dog."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case247",
+    "text_parts":[
+      "Lab results show the patient has high levels of uric acid.",
+      "The patient is thinking of moving to a coastal city."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case251",
+    "text_parts":[
+      "The endoscopy revealed inflammation in the patient's esophagus.",
+      "The patient recently bought a bicycle."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case252",
+    "text_parts":[
+      "The patient's reflexes are slower than normal.",
+      "The patient has always dreamed of visiting Greece."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case259",
+    "text_parts":[
+      "Lab tests show elevated levels of calcium in the patient's blood.",
+      "The patient is considering writing a novel."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case261",
+    "text_parts":[
+      "The patient has consistent ringing in their left ear.",
+      "The patient expressed interest in astronomy."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case263",
+    "text_parts":[
+      "The patient has wounds on their feet that are slow to heal.",
+      "The patient is planning to take a culinary class."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case266",
+    "text_parts":[
+      "The patient has been experiencing bouts of nausea and vomiting.",
+      "The patient is an avid fan of tennis."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case278",
+    "text_parts":[
+      "The patient has elevated bilirubin levels.",
+      "The patient collects vintage stamps."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case284",
+    "text_parts":[
+      "The MRI reveals a lesion in the patient's brain.",
+      "The patient enjoys listening to classical music."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case285",
+    "text_parts":[
+      "The patient's blood pressure readings have been consistently elevated.",
+      "The patient has two cats and a goldfish."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case291",
+    "text_parts":[
+      "There's a high concentration of ketones in the patient's urine.",
+      "The patient is thinking of starting a podcast."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  }
+]

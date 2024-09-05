@@ -1,0 +1,8 @@
+{
+  "jobid": 1042,
+  "task_name": "Task104_Example_ml_bin_clf",
+  "input_name": "text",
+  "label_name": "multi_label_binary_classification_target",
+  "recommended_truncation_side": "left",
+  "version": "1.0"
+}

@@ -1,0 +1,338 @@
+[
+  {
+    "uid":"Task103_case1",
+    "text_parts":[
+      "Blood tests show a high white cell count.",
+      "The patient's immune system is active."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case6",
+    "text_parts":[
+      "ECG indicates abnormal heart rhythms.",
+      "There are irregularities in the patient's heart activity."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case7",
+    "text_parts":[
+      "The patient is short of breath and has swollen ankles.",
+      "The patient may have heart failure."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case14",
+    "text_parts":[
+      "The patient reports a persistent cough for over three weeks.",
+      "The patient has respiratory symptoms."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case16",
+    "text_parts":[
+      "The patient has been diagnosed with asthma.",
+      "The patient has respiratory issues."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case19",
+    "text_parts":[
+      "The patient has a history of seizures.",
+      "The patient experiences abnormal brain activity."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case27",
+    "text_parts":[
+      "The patient has a history of recurrent tonsillitis.",
+      "The patient has issues with their tonsils."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case34",
+    "text_parts":[
+      "The patient tested positive for tuberculosis.",
+      "The patient has an infectious disease."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case48",
+    "text_parts":[
+      "The patient reports consistent discomfort in the right shoulder.",
+      "There might be an injury or issue in the patient's shoulder."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case50",
+    "text_parts":[
+      "The patient complains of persistent insomnia.",
+      "The patient struggles with sleep."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case64",
+    "text_parts":[
+      "The patient displays erratic behavior and mood swings.",
+      "The patient may be facing a mental health issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case68",
+    "text_parts":[
+      "There's a lump palpable on the patient's neck.",
+      "There might be a growth or tumor in the patient's neck area."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case79",
+    "text_parts":[
+      "The patient's visual field test indicates a blind spot.",
+      "The patient may have an eye or neural issue."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case97",
+    "text_parts":[
+      "The patient's pulse rate is irregular.",
+      "The patient might have a heart-related condition."
+    ],
+    "single_label_multi_class_classification_target":"entailment"
+  },
+  {
+    "uid":"Task103_case101",
+    "text_parts":[
+      "Blood tests show a high white cell count.",
+      "The patient's immune system is not responding."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case106",
+    "text_parts":[
+      "ECG indicates abnormal heart rhythms.",
+      "The ECG results are perfectly normal."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case107",
+    "text_parts":[
+      "The patient is short of breath and has swollen ankles.",
+      "The patient is showing no symptoms of a cardiac condition."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case114",
+    "text_parts":[
+      "The patient reports a persistent cough for over three weeks.",
+      "The patient has no respiratory issues."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case116",
+    "text_parts":[
+      "The patient has been diagnosed with asthma.",
+      "The patient does not have any breathing issues."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case119",
+    "text_parts":[
+      "The patient has a history of seizures.",
+      "The patient has never had a seizure."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case127",
+    "text_parts":[
+      "The patient has a history of recurrent tonsillitis.",
+      "The patient has never had issues with their tonsils."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case134",
+    "text_parts":[
+      "The patient tested positive for tuberculosis.",
+      "The patient doesn't have any infectious diseases."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case148",
+    "text_parts":[
+      "The patient reports consistent discomfort in the right shoulder.",
+      "The patient's shoulder is in perfect condition."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case150",
+    "text_parts":[
+      "The patient complains of persistent insomnia.",
+      "The patient sleeps soundly every night."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case164",
+    "text_parts":[
+      "The patient displays erratic behavior and mood swings.",
+      "The patient's behavior is consistent and stable."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case168",
+    "text_parts":[
+      "There's a lump palpable on the patient's neck.",
+      "The patient's neck is clear of any lumps or growths."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case179",
+    "text_parts":[
+      "The patient's visual field test indicates a blind spot.",
+      "The patient's vision is impeccable without any blind spots."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case197",
+    "text_parts":[
+      "The patient's pulse rate is irregular.",
+      "The patient's pulse rate is perfectly steady."
+    ],
+    "single_label_multi_class_classification_target":"contradiction"
+  },
+  {
+    "uid":"Task103_case201",
+    "text_parts":[
+      "Blood tests show a high white cell count.",
+      "The patient is allergic to penicillin."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case206",
+    "text_parts":[
+      "ECG indicates abnormal heart rhythms.",
+      "The patient participates in regular exercise."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case207",
+    "text_parts":[
+      "The patient is short of breath and has swollen ankles.",
+      "The patient follows a vegetarian diet."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case214",
+    "text_parts":[
+      "The patient reports a persistent cough for over three weeks.",
+      "The patient lives in an urban area."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case216",
+    "text_parts":[
+      "The patient has been diagnosed with asthma.",
+      "The patient frequently travels for work."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case219",
+    "text_parts":[
+      "The patient has a history of seizures.",
+      "The patient has been practicing meditation."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case227",
+    "text_parts":[
+      "The patient has a history of recurrent tonsillitis.",
+      "The patient recently painted their living room blue."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case234",
+    "text_parts":[
+      "The patient tested positive for tuberculosis.",
+      "The patient's childhood dream was to become an astronaut."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case248",
+    "text_parts":[
+      "The patient reports consistent discomfort in the right shoulder.",
+      "The patient wants to take a photography course."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case250",
+    "text_parts":[
+      "The patient complains of persistent insomnia.",
+      "The patient likes collecting vintage postcards."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case264",
+    "text_parts":[
+      "The patient displays erratic behavior and mood swings.",
+      "The patient has recently started playing board games."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case268",
+    "text_parts":[
+      "There's a lump palpable on the patient's neck.",
+      "The patient plans to take a road trip next month."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case279",
+    "text_parts":[
+      "The patient's visual field test indicates a blind spot.",
+      "The patient enjoys writing poetry in their free time."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  },
+  {
+    "uid":"Task103_case297",
+    "text_parts":[
+      "The patient's pulse rate is irregular.",
+      "The patient recently visited a modern art museum."
+    ],
+    "single_label_multi_class_classification_target":"neutral"
+  }
+]

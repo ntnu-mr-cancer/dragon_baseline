@@ -1,0 +1,8 @@
+{
+  "jobid": 1094,
+  "task_name": "Task109_Example_ml_ner",
+  "input_name": "text_parts",
+  "label_name": "multi_label_named_entity_recognition_target",
+  "recommended_truncation_side": "right",
+  "version": "1.0"
+}

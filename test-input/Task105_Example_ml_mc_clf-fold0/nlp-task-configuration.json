@@ -1,0 +1,8 @@
+{
+  "jobid": 1050,
+  "task_name": "Task105_Example_ml_mc_clf",
+  "input_name": "text",
+  "label_name": "multi_label_multi_class_classification_target",
+  "recommended_truncation_side": "left",
+  "version": "1.0"
+}

@@ -1,0 +1,8 @@
+{
+  "jobid": 1062,
+  "task_name": "Task106_Example_sl_reg",
+  "input_name": "text",
+  "label_name": "single_label_regression_target",
+  "recommended_truncation_side": "left",
+  "version": "1.0"
+}

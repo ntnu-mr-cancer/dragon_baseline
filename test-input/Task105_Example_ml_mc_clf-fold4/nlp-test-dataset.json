@@ -1,0 +1,902 @@
+[
+  {
+    "uid":"Task105_case2",
+    "text":"Patient reports headache. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case6",
+    "text":"Patient reports joint pain, cough, nausea. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case7",
+    "text":"Patient reports fatigue, nausea, fever, joint pain. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case10",
+    "text":"Patient reports joint pain, fatigue. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case18",
+    "text":"Patient reports chest pain, joint pain, nausea. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case23",
+    "text":"Patient reports dizziness, joint pain, fatigue, shortness of breath. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case24",
+    "text":"Patient reports fatigue, headache, joint pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case28",
+    "text":"Patient reports cough, fatigue. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case29",
+    "text":"Patient reports joint pain, chest pain. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case30",
+    "text":"Patient reports fever, cough. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case31",
+    "text":"Patient reports headache, cough, shortness of breath. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case33",
+    "text":"Patient reports joint pain. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case39",
+    "text":"Patient reports fatigue, cough. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case41",
+    "text":"Patient reports dizziness. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case44",
+    "text":"Patient reports fatigue. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case49",
+    "text":"Patient reports shortness of breath, nausea, cough. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case51",
+    "text":"Patient reports shortness of breath, headache, fatigue. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case54",
+    "text":"Patient reports headache, nausea, chest pain, shortness of breath. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case55",
+    "text":"Patient reports headache, joint pain. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case56",
+    "text":"Patient reports chest pain, cough. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case60",
+    "text":"Patient reports nausea, headache. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case61",
+    "text":"Patient reports chest pain, headache, cough, dizziness. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case63",
+    "text":"Patient reports nausea. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case65",
+    "text":"Patient reports shortness of breath, headache, fatigue. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case66",
+    "text":"Patient reports fever. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case69",
+    "text":"Patient reports shortness of breath, joint pain, fatigue. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case70",
+    "text":"Patient reports nausea, cough, dizziness. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case72",
+    "text":"Patient reports fever. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case73",
+    "text":"Patient reports nausea, headache, cough. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case76",
+    "text":"Patient reports chest pain, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case77",
+    "text":"Patient reports fatigue, cough, nausea, chest pain. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case78",
+    "text":"Patient reports shortness of breath, fatigue. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case79",
+    "text":"Patient reports nausea, dizziness, joint pain, cough. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case81",
+    "text":"Patient reports nausea, fatigue, joint pain, headache. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case82",
+    "text":"Patient reports cough, chest pain, fever, headache. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case83",
+    "text":"Patient reports fatigue, cough, headache. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case84",
+    "text":"Patient reports shortness of breath, chest pain, nausea. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case86",
+    "text":"Patient reports fatigue. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case90",
+    "text":"Patient reports chest pain, fever, dizziness, cough. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case97",
+    "text":"Patient reports fatigue, fever, nausea. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case101",
+    "text":"Patient reports nausea, fatigue, fever, headache. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case108",
+    "text":"Patient reports fever, chest pain, joint pain, dizziness. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case109",
+    "text":"Patient reports fatigue, headache, chest pain. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case110",
+    "text":"Patient reports chest pain. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case118",
+    "text":"Patient reports joint pain. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case120",
+    "text":"Patient reports dizziness, shortness of breath, cough, headache. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case131",
+    "text":"Patient reports dizziness, fever, headache, chest pain. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case132",
+    "text":"Patient reports joint pain, fever. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case133",
+    "text":"Patient reports fatigue, nausea. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case135",
+    "text":"Patient reports nausea, shortness of breath, cough, joint pain. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case136",
+    "text":"Patient reports fever, nausea, joint pain, shortness of breath. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case139",
+    "text":"Patient reports chest pain. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case140",
+    "text":"Patient reports shortness of breath. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case145",
+    "text":"Patient reports headache, chest pain. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case148",
+    "text":"Patient reports headache, dizziness, fever, fatigue. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case155",
+    "text":"Patient reports chest pain. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case158",
+    "text":"Patient reports nausea, shortness of breath. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case164",
+    "text":"Patient reports headache. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case165",
+    "text":"Patient reports dizziness. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case174",
+    "text":"Patient reports shortness of breath, cough. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case181",
+    "text":"Patient reports fever, joint pain. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case182",
+    "text":"Patient reports shortness of breath, headache. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case192",
+    "text":"Patient reports dizziness, headache, joint pain. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case196",
+    "text":"Patient reports dizziness. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case198",
+    "text":"Patient reports shortness of breath, dizziness, headache. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case199",
+    "text":"Patient reports joint pain. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case204",
+    "text":"Patient reports cough, fever. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case208",
+    "text":"Patient reports joint pain, cough, fatigue. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case210",
+    "text":"Patient reports chest pain, fatigue, fever. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case211",
+    "text":"Patient reports cough, shortness of breath, fever. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case212",
+    "text":"Patient reports shortness of breath. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case213",
+    "text":"Patient reports nausea, joint pain, dizziness, fatigue. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case215",
+    "text":"Patient reports nausea, joint pain, cough. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case218",
+    "text":"Patient reports fatigue, dizziness. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case220",
+    "text":"Patient reports dizziness, cough, joint pain, shortness of breath. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case223",
+    "text":"Patient reports joint pain, dizziness, shortness of breath. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case227",
+    "text":"Patient reports chest pain. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case231",
+    "text":"Patient reports chest pain, dizziness, joint pain, nausea. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case234",
+    "text":"Patient reports chest pain. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case239",
+    "text":"Patient reports nausea. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case247",
+    "text":"Patient reports fatigue, shortness of breath, chest pain, dizziness. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case248",
+    "text":"Patient reports joint pain, cough, nausea. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case250",
+    "text":"Patient reports headache, chest pain, joint pain. On examination, inflamed tonsils and swollen lymph nodes was noted.Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Recommend further testing. Recommend further testing. Advise regular exercise. Advise regular exercise. Recommend further testing. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Recommend further testing. Advise regular exercise. Advise regular exercise. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Recommend further testing. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise regular exercise. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Advise regular exercise. Recommend further testing. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Advise regular exercise. Recommend further testing. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Recommend further testing. Advise regular exercise. Suggest dietary changes. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake."
+  },
+  {
+    "uid":"Task105_case254",
+    "text":"Patient reports joint pain, headache, fatigue. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case259",
+    "text":"Patient reports fatigue. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case260",
+    "text":"Patient reports fever, dizziness, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case264",
+    "text":"Patient reports joint pain, fatigue, chest pain. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case265",
+    "text":"Patient reports chest pain, dizziness. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case266",
+    "text":"Patient reports shortness of breath, fatigue, dizziness. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case281",
+    "text":"Patient reports fatigue. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case286",
+    "text":"Patient reports cough, chest pain. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case290",
+    "text":"Patient reports fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case292",
+    "text":"Patient reports fatigue. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case299",
+    "text":"Patient reports fever, fatigue, nausea. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case300",
+    "text":"Patient reports fever, shortness of breath. On examination, high blood pressure and irregular heart rate was noted.Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Suggest dietary changes. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Advise regular exercise. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Suggest dietary changes. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Recommend further testing. Suggest dietary changes. Recommend further testing. Recommend further testing. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Suggest dietary changes. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Advise regular exercise. Recommend further testing. Advise regular exercise. Advise patient to increase fluid intake. Recommend further testing. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Suggest dietary changes. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Suggest dietary changes. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise."
+  },
+  {
+    "uid":"Task105_case302",
+    "text":"Patient reports nausea, fatigue, joint pain. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case306",
+    "text":"Patient reports fatigue. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case319",
+    "text":"Patient reports joint pain, fever. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case323",
+    "text":"Patient reports cough. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case324",
+    "text":"Patient reports cough, fatigue. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case326",
+    "text":"Patient reports dizziness, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case328",
+    "text":"Patient reports nausea. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case329",
+    "text":"Patient reports joint pain, nausea. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case332",
+    "text":"Patient reports fever, dizziness, fatigue, cough. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case333",
+    "text":"Patient reports dizziness. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case335",
+    "text":"Patient reports shortness of breath, dizziness, fever. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case336",
+    "text":"Patient reports dizziness, joint pain, shortness of breath, fatigue. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case342",
+    "text":"Patient reports cough, fever, nausea, chest pain. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case344",
+    "text":"Patient reports shortness of breath, joint pain. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case346",
+    "text":"Patient reports fever. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case350",
+    "text":"Patient reports nausea, shortness of breath, dizziness, joint pain. On examination, irregular heart rate and swollen lymph nodes was noted.Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Suggest dietary changes. Suggest dietary changes. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication. Suggest dietary changes. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Suggest dietary changes. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Suggest dietary changes. Recommend further testing. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Recommend further testing. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Recommend further testing. Advise regular exercise. Suggest dietary changes. Advise patient to increase fluid intake. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Advise regular exercise. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Suggest dietary changes. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Suggest dietary changes. Schedule follow-up in two weeks. Recommend further testing. Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Recommend further testing."
+  },
+  {
+    "uid":"Task105_case352",
+    "text":"Patient reports cough, fatigue, headache. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case355",
+    "text":"Patient reports fever, nausea, cough. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case356",
+    "text":"Patient reports headache, nausea, cough, chest pain. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case357",
+    "text":"Patient reports headache. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case361",
+    "text":"Patient reports dizziness, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case362",
+    "text":"Patient reports dizziness, fever, fatigue, shortness of breath. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case368",
+    "text":"Patient reports nausea, headache. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case369",
+    "text":"Patient reports cough, dizziness, shortness of breath, chest pain. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case371",
+    "text":"Patient reports chest pain, joint pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case377",
+    "text":"Patient reports joint pain, chest pain, cough, nausea. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case381",
+    "text":"Patient reports nausea, fever. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case390",
+    "text":"Patient reports cough, fever. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case393",
+    "text":"Patient reports cough, shortness of breath, nausea, fever. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case394",
+    "text":"Patient reports nausea, joint pain, fatigue, shortness of breath. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case398",
+    "text":"Patient reports nausea, fever, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case404",
+    "text":"Patient reports fever, nausea, fatigue, shortness of breath. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case405",
+    "text":"Patient reports headache. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case412",
+    "text":"Patient reports fever, shortness of breath, joint pain. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case420",
+    "text":"Patient reports dizziness, nausea. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case422",
+    "text":"Patient reports dizziness, shortness of breath, chest pain. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case423",
+    "text":"Patient reports cough, headache, dizziness. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case426",
+    "text":"Patient reports chest pain, dizziness, fever. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case428",
+    "text":"Patient reports shortness of breath. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case431",
+    "text":"Patient reports headache, shortness of breath. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case432",
+    "text":"Patient reports chest pain, fatigue, cough. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case436",
+    "text":"Patient reports chest pain. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case439",
+    "text":"Patient reports shortness of breath. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case440",
+    "text":"Patient reports fever, headache, dizziness. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case445",
+    "text":"Patient reports nausea, shortness of breath, dizziness, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case446",
+    "text":"Patient reports cough, chest pain, joint pain, headache. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case451",
+    "text":"Patient reports cough, nausea, fatigue, chest pain. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case453",
+    "text":"Patient reports shortness of breath, dizziness, headache. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case457",
+    "text":"Patient reports cough, dizziness, chest pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case462",
+    "text":"Patient reports cough. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case464",
+    "text":"Patient reports joint pain, dizziness, chest pain, headache. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case467",
+    "text":"Patient reports cough, joint pain. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case468",
+    "text":"Patient reports fatigue, fever. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case480",
+    "text":"Patient reports chest pain. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case481",
+    "text":"Patient reports nausea, headache, joint pain. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case485",
+    "text":"Patient reports headache. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case490",
+    "text":"Patient reports headache, dizziness, joint pain. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case493",
+    "text":"Patient reports shortness of breath, nausea, fever. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case494",
+    "text":"Patient reports fatigue. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case495",
+    "text":"Patient reports joint pain, shortness of breath. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case497",
+    "text":"Patient reports headache. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case499",
+    "text":"Patient reports fatigue, fever, shortness of breath, joint pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case500",
+    "text":"Patient reports headache, fatigue, chest pain. On examination, inflamed tonsils and swollen lymph nodes was noted.Recommend further testing. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Recommend further testing. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Schedule follow-up in two weeks. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication. Suggest dietary changes. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Advise regular exercise. Advise regular exercise. Recommend further testing. Suggest dietary changes. Advise regular exercise. Advise regular exercise. Advise regular exercise. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Suggest dietary changes. Suggest dietary changes. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Suggest dietary changes. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise regular exercise. Advise patient to increase fluid intake. Advise regular exercise. Advise regular exercise. Suggest dietary changes. Recommend further testing. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Suggest dietary changes. Advise regular exercise. Suggest dietary changes. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication."
+  },
+  {
+    "uid":"Task105_case506",
+    "text":"Patient reports chest pain. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case507",
+    "text":"Patient reports joint pain. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case513",
+    "text":"Patient reports chest pain. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case518",
+    "text":"Patient reports fever, fatigue. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case522",
+    "text":"Patient reports cough. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case528",
+    "text":"Patient reports cough. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case531",
+    "text":"Patient reports cough. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case532",
+    "text":"Patient reports nausea, joint pain. On examination, irregular heart rate and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case538",
+    "text":"Patient reports shortness of breath, chest pain, headache, joint pain. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case542",
+    "text":"Patient reports joint pain, fatigue, dizziness, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case551",
+    "text":"Patient reports headache, nausea. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case557",
+    "text":"Patient reports headache, chest pain, dizziness. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case569",
+    "text":"Patient reports joint pain, fever, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case570",
+    "text":"Patient reports chest pain, fever. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case572",
+    "text":"Patient reports chest pain, dizziness. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case581",
+    "text":"Patient reports dizziness, headache. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case582",
+    "text":"Patient reports fever, fatigue. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case583",
+    "text":"Patient reports headache, nausea. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case595",
+    "text":"Patient reports fever, cough, fatigue, joint pain. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case597",
+    "text":"Patient reports joint pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case599",
+    "text":"Patient reports joint pain, headache. On examination, high blood pressure and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case601",
+    "text":"Patient reports fatigue, nausea. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case602",
+    "text":"Patient reports shortness of breath, cough. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case604",
+    "text":"Patient reports fever. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case605",
+    "text":"Patient reports nausea, cough, chest pain. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case611",
+    "text":"Patient reports joint pain, fever, cough. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case615",
+    "text":"Patient reports chest pain, joint pain, fatigue. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case618",
+    "text":"Patient reports chest pain, dizziness, shortness of breath, headache. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case620",
+    "text":"Patient reports chest pain, joint pain, shortness of breath, dizziness. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case621",
+    "text":"Patient reports headache, fever, shortness of breath, dizziness. On examination, high blood pressure and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case622",
+    "text":"Patient reports cough, headache, fever, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case623",
+    "text":"Patient reports joint pain, chest pain, shortness of breath. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case626",
+    "text":"Patient reports chest pain, shortness of breath. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case629",
+    "text":"Patient reports chest pain, dizziness. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case630",
+    "text":"Patient reports chest pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case631",
+    "text":"Patient reports nausea, shortness of breath. On examination, chest congestion and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case641",
+    "text":"Patient reports nausea, fever, fatigue, dizziness. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case644",
+    "text":"Patient reports cough, chest pain. On examination, inflamed tonsils and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case649",
+    "text":"Patient reports nausea, cough, shortness of breath. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case650",
+    "text":"Patient reports dizziness. On examination, inflamed tonsils and irregular heart rate was noted.Schedule follow-up in two weeks. Advise regular exercise. Prescribe rest and over-the-counter medication. Advise regular exercise. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Advise regular exercise. Schedule follow-up in two weeks. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Schedule follow-up in two weeks. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Schedule follow-up in two weeks. Suggest dietary changes. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Suggest dietary changes. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Suggest dietary changes. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Recommend further testing. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Recommend further testing. Suggest dietary changes. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Recommend further testing. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Suggest dietary changes. Prescribe rest and over-the-counter medication. Recommend further testing. Advise patient to increase fluid intake. Recommend further testing. Prescribe rest and over-the-counter medication. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Schedule follow-up in two weeks. Advise regular exercise. Schedule follow-up in two weeks. Schedule follow-up in two weeks. Recommend further testing. Prescribe rest and over-the-counter medication. Advise patient to increase fluid intake. Advise patient to increase fluid intake. Suggest dietary changes. Advise patient to increase fluid intake. Advise regular exercise. Prescribe rest and over-the-counter medication. Recommend further testing. Recommend further testing. Prescribe rest and over-the-counter medication. Advise regular exercise. Schedule follow-up in two weeks. Advise regular exercise. Advise patient to increase fluid intake. Prescribe rest and over-the-counter medication. Advise regular exercise. Recommend further testing. Schedule follow-up in two weeks. Prescribe rest and over-the-counter medication. Advise regular exercise. Suggest dietary changes. Prescribe rest and over-the-counter medication."
+  },
+  {
+    "uid":"Task105_case655",
+    "text":"Patient reports fever, shortness of breath, fatigue, dizziness. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case667",
+    "text":"Patient reports cough, chest pain. On examination, inflamed tonsils and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case668",
+    "text":"Patient reports cough, nausea, headache, joint pain. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case672",
+    "text":"Patient reports nausea, chest pain, fatigue, shortness of breath. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case673",
+    "text":"Patient reports dizziness, nausea. On examination, chest congestion and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case677",
+    "text":"Patient reports shortness of breath. On examination, swollen lymph nodes and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case680",
+    "text":"Patient reports headache. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case682",
+    "text":"Patient reports headache, dizziness. On examination, chest congestion and swollen lymph nodes was noted."
+  },
+  {
+    "uid":"Task105_case685",
+    "text":"Patient reports dizziness, chest pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case688",
+    "text":"Patient reports joint pain, headache. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case696",
+    "text":"Patient reports chest pain, headache, cough, dizziness. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case701",
+    "text":"Patient reports fatigue, chest pain, shortness of breath. On examination, irregular heart rate and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case703",
+    "text":"Patient reports fatigue, chest pain, nausea. On examination, chest congestion and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case707",
+    "text":"Patient reports joint pain, fever, chest pain, nausea. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case708",
+    "text":"Patient reports shortness of breath. On examination, high blood pressure and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case709",
+    "text":"Patient reports cough, fatigue, nausea, joint pain. On examination, swollen lymph nodes and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case716",
+    "text":"Patient reports fatigue, chest pain, cough. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case727",
+    "text":"Patient reports fatigue, shortness of breath, nausea. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case730",
+    "text":"Patient reports nausea. On examination, irregular heart rate and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case731",
+    "text":"Patient reports cough, headache. On examination, swollen lymph nodes and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case736",
+    "text":"Patient reports joint pain, nausea. On examination, inflamed tonsils and high blood pressure was noted."
+  },
+  {
+    "uid":"Task105_case737",
+    "text":"Patient reports nausea, fatigue. On examination, irregular heart rate and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case740",
+    "text":"Patient reports chest pain, dizziness. On examination, inflamed tonsils and chest congestion was noted."
+  },
+  {
+    "uid":"Task105_case744",
+    "text":"Patient reports fatigue, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case745",
+    "text":"Patient reports nausea, headache, dizziness, chest pain. On examination, high blood pressure and inflamed tonsils was noted."
+  },
+  {
+    "uid":"Task105_case746",
+    "text":"Patient reports headache. On examination, swollen lymph nodes and irregular heart rate was noted."
+  },
+  {
+    "uid":"Task105_case748",
+    "text":"Patient reports shortness of breath, headache. On examination, high blood pressure and inflamed tonsils was noted."
+  }
+]

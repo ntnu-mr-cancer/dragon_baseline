@@ -193,13 +193,13 @@ class DragonBaseline(NLPAlgorithm):
         self.gradient_accumulation_steps = 2
         self.gradient_checkpointing = False
         self.max_seq_length = 512
-        self.learning_rate = 3e-5
-        self.num_train_epochs = 15
+        self.learning_rate = 1e-5
+        self.num_train_epochs = 1
         self.warmup_ratio = 0.1
         self.load_best_model_at_end = True
         self.metric_for_best_model = "loss"
-        self.fp16 = False
-        self.create_strided_training_examples = False
+        self.fp16 = True
+        self.create_strided_training_examples = True
 
         # paths for saving the preprocessed data and model checkpoints
         self.nlp_dataset_train_preprocessed_path = Path(workdir / "nlp-dataset-train-preprocessed.json")
@@ -425,7 +425,7 @@ class DragonBaseline(NLPAlgorithm):
             "--truncation_side", self.task.recommended_truncation_side,
             "--load_best_model_at_end", self.load_best_model_at_end,
             "--save_strategy", "epoch",
-            "--evaluation_strategy", "epoch",
+            "--eval_strategy", "epoch",
             "--per_device_train_batch_size", self.per_device_train_batch_size,
             "--gradient_accumulation_steps", self.gradient_accumulation_steps,
             "--gradient_checkpointing", self.gradient_checkpointing,

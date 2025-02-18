@@ -1,15 +1,15 @@
 # DRAGON Development Guide
 
-Submissions to the DRAGON challenge need to generate predictions for the test set of each task. The predictions should be stored in a specific format, as described in the [dataset convention](/documentation/dataset_convention.md). The predictions are then evaluated on the Grand Challenge platform. To generate the predictions, examples from the training set can be used. These examples can be used to fine-tune a model, provide few-shot examples, or be used in any other way to generate predictions for the test set. For model selection, the validation set can be used. 
+Submissions to the DRAGON challenge need to generate predictions for the test set of each task. The predictions should be stored in a specific format, as described in the [dataset convention](/documentation/dataset_convention.md). The predictions are then evaluated on the Grand Challenge platform. To generate the predictions, examples from the training set may be used. These examples can be used to fine-tune a model, provide few-shot examples, or be used in any other way to generate predictions for the test set. For model selection, the validation set may be used. 
 
-To facilitate the development of algorithms, we provide a [submission template](https://github.com/DIAGNijmegen/dragon_submission) that solves each task using a BERT-like model. Alternatively, when using generative models, this template using LLMs (Gemma2 using the Ollama framework) can be used as starting point: [dragon_submission_llm_extractinator_gemma2](https://github.com/DIAGNijmegen/dragon_submission_llm_extractinator_gemma2).
+To facilitate the development of algorithms, we provide a [submission template](https://github.com/DIAGNijmegen/dragon_submission) that solves each task using a BERT-like model. Alternatively, when using generative models, [this template]((https://github.com/DIAGNijmegen/dragon_submission_llm_extractinator_gemma2)) uses LLMs (Gemma2 using the Ollama framework) and can be used as starting point.
 
 Additionally, we provide synthetic datasets that can be used for debugging and testing.
 
-Note: the validation set may not be used as training data, such that the robustness of the algorithm can be assessed through the cross-validation setup of the DRAGON benchmark.
+Note: the validation set may not be used as additional training data, such that the robustness of the algorithm can be assessed through the cross-validation setup of the DRAGON benchmark.
 
 ## Format for submissions
-Submissions to the DRAGON challenge are to be made as Docker containers. Thse Docker containers must encapsulate all **training resources** (e.g., pretrained model weights, fine-tuning strategy, and/or prompting strategy with few-shot examples) and the components needed to **generate predictions** for the test cases. The flow for submissions is shown below. Technically, these containers are [Grand Challenge (GC) algorithms](https://grand-challenge.org/documentation/algorithms/) with standardised input and output data handling. We highly recommend  the general tutorial on creating
+Submissions to the DRAGON challenge are to be made as Docker containers. Thse Docker containers must encapsulate **all training resources** (e.g., pretrained model weights, fine-tuning strategy, and/or prompting strategy with few-shot examples) and the components needed to **generate predictions** for the test cases. The flow for submissions is shown below. Technically, these containers are [Grand Challenge (GC) algorithms](https://grand-challenge.org/documentation/algorithms/) with standardised input and output data handling. We highly recommend  the general tutorial on creating
 Grand Challenge Algorithms: <a href="https://grand-challenge.org/documentation/create-your-own-algorithm/" target="_blank">https://grand-challenge.org/documentation/create-your-own-algorithm/</a>.
 
 
@@ -20,7 +20,7 @@ Grand Challenge Algorithms: <a href="https://grand-challenge.org/documentation/c
 ## Setup for development
 The DRAGON baseline algorithm provides a common solution to all tasks in the DRAGON benchmark. This algoritm was evaluated on the DRAGON benchmark across five architectures and three pretraining strategies, and some of its strengths and weaknesses are described [here](/README.md#where-does-the-dragon-baseline-perform-well-and-where-does-it-not-perform).
 
-Rather than directly adapting the DRAGON baseline repository, we recommend making a fork of the [DRAGON submission repository](https://github.com/DIAGNijmegen/dragon_submission) as a template for your solution. This brings in everyting of the DRAGON baseline, as well as documentation on how to make code changes. A clear benefit from starting with the [DRAGON submission repository](https://github.com/DIAGNijmegen/dragon_submission) is that code changes made by you stand out from the code in the DRAGON benchmark. This in turn makes it easy to maintain and upgrade to improved versions of the baseline once those come along.
+Rather than directly adapting the DRAGON baseline repository, we recommend making a fork of the [DRAGON submission repository](https://github.com/DIAGNijmegen/dragon_submission) as a template for your solution. This brings in everyting of the DRAGON baseline, as well as documentation on how to make code changes. A clear benefit from starting with the [DRAGON submission repository](https://github.com/DIAGNijmegen/dragon_submission) is that code changes made by you stand out from the code in the DRAGON baseline. This in turn makes it easy to maintain and upgrade to improved versions of the baseline once those come along.
 
 After making the fork, clone it. For the sake of this tutorial, we will assume you put your repositories in the `~/repos` folder (feel free to change this to any other directory). Please replace `{YOURUSERNAME}` with your GitHub username.
 
@@ -33,10 +33,10 @@ This brings in all necessary steps for data loading, validation, preprocessing, 
 
 
 ## Validating the setup
-Before implementing your algorithm using this template, we recommend to test whether setup was completed successfully. This will also test whether your hardware setup is suitable. The baseline was tested on [these systems](documentation/system_requirements.md). 
+Before implementing your algorithm using this template, we recommend to test whether setup was completed successfully. This will also test whether your hardware setup is suitable. The baseline was tested on [these systems](/documentation/system_requirements.md). 
 
 
-### Working in Docker
+### Option 1: Working in Docker
 You must have
 <a href="https://docs.docker.com/get-docker/" target="_blank">Docker</a>
 installed and running on your system for the following steps to work. If
@@ -46,7 +46,7 @@ details, you can watch the
 <a href="https://www.youtube.com/watch?v=PdxXlZJiuxA" target="_blank">official tutorial by Microsoft for installing WSL 2 with
 GPU support</a>.
 
-Once Docker is installed, and start with building the Docker container:
+Once Docker is installed, start with building the Docker container:
 
 ```bash
 cd ~/repos/dragon_submission
@@ -55,7 +55,7 @@ cd ~/repos/dragon_submission
 
 If ran successfully, this should result in the Docker container named `joeranbosma/dragon_submission:latest`.
 
-Then, test your setup by training and evaluating on the synthetic datasets. This will fine-tune the `distilbert-base-multilingual-cased` for each of the nine synthetic debugging datasets, so this can take a while. To do so, run:
+Then, test your setup by training and evaluating on the synthetic datasets. To do so, run:
 
 ```bash
 cd ~/repos/dragon_submission
@@ -64,7 +64,7 @@ cd ~/repos/dragon_submission
 
 Note: testing also runs a build, so running the build command separately is optional (if you are certain that everything is set up correctly).
 
-Testing involves running your algorithm on nine synthetic datasets provided in the `./test-input/` folder. It will then check the test predictions produced by your algorithm against the labels and display the performance. Since training is typically not deterministic (even with the same random seed across different hardware), we don't compare against pre-computed test predictions. Instead, we check if all training runs perform better than random guessing. If all tests have been completed successfully, you're good to go!
+Testing involves fine-tuning your algorithm on the nine synthetic datasets provided in the `test-input` folder. It will then generate and check the test predictions produced by your algorithm against the labels and display the performance. Since training is typically not deterministic (even with the same random seed across different hardware), we don't compare against pre-computed test predictions. Instead, we print the performance and ask you to check if all training runs perform better than random guessing. If this is successful, you're good to go!
 
 If you want to adapt the hardware (e.g., run on CPU instead of GPU, or allow more/less RAM, CPU cores, etc.) you can adapt the `test.sh` file.
 
@@ -83,17 +83,16 @@ This was tested on Ubuntu 22.04. If you have issues installing the `requirements
 
 ```bash
 cd ~/repos/dragon_submission
-pip install torch xformers==0.0.21
 pip install -r requirements.in
 ```
 
-If this was all successful, you can open the repository in an IDE and select the `dragon_submission` environment to run the code in.
+If this was all successful, you can open the repository in an IDE and select the `dragon_submission` environment to run the code in. When running on Mac, xformers version 0.0.21 may work better (`pip install xformers==0.0.21`).
 
-To validate the setup works as intended, run the `test.py` script to train on the synthetic datasets. This will fine-tune the `distilbert-base-multilingual-cased` for each of the nine synthetic debugging datasets, so this can take a while.
+To validate the setup works as intended, run the `test.py` script to train on the synthetic datasets. This will fine-tune the model for each of the nine synthetic debugging datasets, so this can take a while.
 
 
 ## Developing Your Own Solution
-After the setup above you're good to go to implement your own AI algorithm! The most logical place to start adapting is the `process.py` script, there are two example alterations provided there too. Any additional imported packages should be added to `./requirements.txt`, and any additional files and folders should be explicitly copied through commands in the `./Dockerfile`. 
+After the setup above you're good to go to implement your own AI algorithm! The most logical place to start adapting is the `process.py` script, there are two example alterations provided there too. Any additional imported packages should be added to `requirements.txt`, and any additional files and folders should be explicitly copied through commands in the `Dockerfile`. 
 
 To update your algorithm on Grand Challenge, you can test your new Docker container, after which you can update the forked repository and **tag** it (following the instructions
 <a href="https://grand-challenge.org/documentation/linking-a-github-repository-to-your-algorithm/" target="_blank">here</a>).

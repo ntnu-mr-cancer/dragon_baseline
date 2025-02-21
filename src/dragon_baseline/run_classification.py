@@ -21,7 +21,9 @@ import os
 import random
 import sys
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, NewType, Any
+
+DataClass = NewType("DataClass", Any)
 
 import datasets
 import evaluate
@@ -267,12 +269,10 @@ def get_label_list(raw_dataset, split="train") -> List[str]:
     label_list = [str(label) for label in label_list]
     return label_list
 
-
-def main():
+def get_cli_arguments():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
-
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
@@ -280,6 +280,10 @@ def main():
         model_args, data_args, training_args = parser.parse_json_file(json_file=os.path.abspath(sys.argv[1]))
     else:
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+
+    return model_args, data_args, training_args
+
+def run_classification(model_args : DataClass, data_args : DataClass, training_args : DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -743,11 +747,13 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
 
+def main():
+    model_args, data_args, training_args = get_cli_arguments()
+    run_classification(model_args, data_args, training_args)
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)
     main()
-
 
 if __name__ == "__main__":
     main()

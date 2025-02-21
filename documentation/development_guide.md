@@ -83,6 +83,7 @@ This was tested on Ubuntu 22.04. If you have issues installing the <a href="http
 
 ```bash
 cd ~/repos/dragon_submission
+pip install torch  # needed first for the xformers package
 pip install -r requirements.in
 ```
 

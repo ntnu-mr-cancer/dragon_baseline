@@ -13,7 +13,6 @@
 #  limitations under the License.
 
 import re
-import subprocess
 from pathlib import Path
 from typing import List, Union
 
@@ -34,6 +33,12 @@ from dragon_baseline.architectures.clf_multi_head import \
 from dragon_baseline.architectures.reg_multi_head import \
     AutoModelForMultiHeadSequenceRegression
 from dragon_baseline.nlp_algorithm import NLPAlgorithm, ProblemType
+from dragon_baseline.run_classification import (
+    get_classification_argument_parser, run_classification)
+from dragon_baseline.run_classification_multi_label import (
+    get_multi_label_classification_argument_parser,
+    run_multi_label_classification)
+from dragon_baseline.run_ner import get_ner_argument_parser, run_ner
 
 __all__ = [
     # expose the algorithm classes
@@ -408,72 +413,64 @@ class DragonBaseline(NLPAlgorithm):
 
         # train the model
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
-            trainer = "ner"
+            trainer_name = "ner"
+            parser = get_ner_argument_parser()
+            trainer = run_ner
         elif self.task.target.problem_type in [ProblemType.MULTI_LABEL_REGRESSION, ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION]:
-            trainer = "multi_label_classification"
+            trainer_name = "multi_label_classification"
+            parser = get_multi_label_classification_argument_parser()
+            trainer = run_multi_label_classification
         else:
-            trainer = "classification"
+            trainer_name  = "classification"
+            parser = get_classification_argument_parser()
+            trainer = run_classification
 
-        cmd = [
-            "python", "-m", "dragon_baseline",
-            trainer,
-            "--do_train",
-            "--do_eval",
-            "--do_predict",
-            "--learning_rate", self.learning_rate,
-            "--model_name_or_path", self.model_name,
-            "--ignore_mismatched_sizes",
-            "--num_train_epochs", self.num_train_epochs,
-            "--warmup_ratio", self.warmup_ratio,
-            "--max_seq_length", self.max_seq_length,
-            "--truncation_side", self.task.recommended_truncation_side,
-            "--load_best_model_at_end", self.load_best_model_at_end,
-            "--save_strategy", "epoch",
-            "--eval_strategy", "epoch",
-            "--per_device_train_batch_size", self.per_device_train_batch_size,
-            "--gradient_accumulation_steps", self.gradient_accumulation_steps,
-            "--gradient_checkpointing", self.gradient_checkpointing,
-            "--train_file", self.nlp_dataset_train_preprocessed_path,
-            "--validation_file", self.nlp_dataset_val_preprocessed_path,
-            "--test_file", self.nlp_dataset_test_preprocessed_path,
-            "--output_dir", self.model_save_dir,
-            "--overwrite_output_dir",
-            "--save_total_limit", "2",
-            "--seed", self.task.jobid,
-            "--report_to", "none",
-            "--text_column_name" + ("s" if not "ner" in trainer else ""), self.task.input_name,
-            "--remove_columns", "uid",
-        ]
+        config = {
+            "do_train" : True,
+            "learning_rate" : self.learning_rate,
+            "model_name_or_path": self.model_name,
+            "ignore_mismatched_sizes": True,
+            "num_train_epochs": self.num_train_epochs,
+            "warmup_ratio": self.warmup_ratio,
+            "max_seq_length": self.max_seq_length,
+            "truncation_side": self.task.recommended_truncation_side,
+            "load_best_model_at_end": self.load_best_model_at_end,
+            "save_strategy": "epoch",
+            "eval_strategy": "epoch",
+            "per_device_train_batch_size": self.per_device_train_batch_size,
+            "gradient_accumulation_steps": self.gradient_accumulation_steps,
+            "gradient_checkpointing": self.gradient_checkpointing,
+            "train_file": self.nlp_dataset_train_preprocessed_path,
+            "validation_file": self.nlp_dataset_val_preprocessed_path,
+            "test_file": self.nlp_dataset_test_preprocessed_path,
+            "output_dir": self.model_save_dir,
+            "overwrite_output_dir": True,
+            "save_total_limit" : 2,
+            "seed": self.task.jobid,
+            "report_to": "none",
+            "text_column_name" + ("s" if not "ner" in trainer_name else "") : self.task.input_name,
+            "remove_columns" : "uid",
+        }
         if self.task.target.problem_type in [
             ProblemType.MULTI_LABEL_REGRESSION,
             ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION,
         ]:
             label_names = [col for col in self.df_train.columns if col.startswith(f"{self.task.target.label_name}_")]
-            cmd.extend([
-                "--label_column_names", ",".join(label_names),
-            ])
+            config["label_column_names"] = ",".join(label_names)
         else:
-            cmd.extend([
-                "--label_column_name", self.task.target.label_name,
-            ])
+            config["label_column_name"] = self.task.target.label_name
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
             if self.create_strided_training_examples:
-                cmd.append("--create_strided_training_examples")
+                config["create_strided_training_examples"] = True
         else:
-            cmd.extend([
-                "--text_column_delimiter", tokenizer.sep_token,
-            ])
+            config["text_column_delimiter"] = tokenizer.sep_token
         if self.metric_for_best_model is not None:
-            cmd.extend([
-                "--metric_for_best_model", str(self.metric_for_best_model),
-            ])
+            config["metric_for_best_model"] = self.metric_for_best_model
         if self.fp16:
-            cmd.append("--fp16")
+            config["fp16"] = True
 
-        cmd = [str(arg) for arg in cmd]
-        print("Training command:")
-        print(" ".join(cmd))
-        subprocess.check_call(cmd)
+        model_args, data_args, training_args = parser.parse_dict(config)
+        trainer(model_args, data_args, training_args)
 
     def predict_ner(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data.

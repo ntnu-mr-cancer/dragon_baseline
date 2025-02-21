@@ -426,8 +426,8 @@ class DragonBaseline(NLPAlgorithm):
             trainer = run_classification
 
         config = {
-            "do_train" : True,
-            "learning_rate" : self.learning_rate,
+            "do_train": True,
+            "learning_rate": self.learning_rate,
             "model_name_or_path": self.model_name,
             "ignore_mismatched_sizes": True,
             "num_train_epochs": self.num_train_epochs,
@@ -444,11 +444,11 @@ class DragonBaseline(NLPAlgorithm):
             "validation_file": self.nlp_dataset_val_preprocessed_path,
             "output_dir": self.model_save_dir,
             "overwrite_output_dir": True,
-            "save_total_limit" : 2,
+            "save_total_limit": 2,
             "seed": self.task.jobid,
             "report_to": "none",
-            "text_column_name" + ("s" if not "ner" in trainer_name else "") : self.task.input_name,
-            "remove_columns" : "uid",
+            "text_column_name" + ("s" if not "ner" in trainer_name else ""): self.task.input_name,
+            "remove_columns": "uid",
         }
         if self.task.target.problem_type in [
             ProblemType.MULTI_LABEL_REGRESSION,

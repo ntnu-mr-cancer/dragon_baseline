@@ -8,3 +8,4 @@ pandas
 seqeval
 evalutils==0.4.2
 scikit-learn==1.5.2
+dragon_eval>=0.2.6

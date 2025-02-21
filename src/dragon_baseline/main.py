@@ -13,7 +13,6 @@
 #  limitations under the License.
 
 import re
-import subprocess
 from pathlib import Path
 from typing import List, Union
 
@@ -34,8 +33,11 @@ from dragon_baseline.architectures.clf_multi_head import \
 from dragon_baseline.architectures.reg_multi_head import \
     AutoModelForMultiHeadSequenceRegression
 from dragon_baseline.nlp_algorithm import NLPAlgorithm, ProblemType
-from dragon_baseline.run_classification import get_classification_argument_parser, run_classification
-from dragon_baseline.run_classification_multi_label import get_multi_label_classification_argument_parser, run_multi_label_classification
+from dragon_baseline.run_classification import (
+    get_classification_argument_parser, run_classification)
+from dragon_baseline.run_classification_multi_label import (
+    get_multi_label_classification_argument_parser,
+    run_multi_label_classification)
 from dragon_baseline.run_ner import get_ner_argument_parser, run_ner
 
 __all__ = [

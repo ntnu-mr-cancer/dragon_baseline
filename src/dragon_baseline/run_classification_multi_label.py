@@ -291,7 +291,7 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def run_multi_label_classification(model_args : DataClass, data_args : DataClass, training_args : DataClass):
+def run_multi_label_classification(model_args: DataClass, data_args: DataClass, training_args: DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.

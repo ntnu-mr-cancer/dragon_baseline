@@ -427,8 +427,6 @@ class DragonBaseline(NLPAlgorithm):
 
         config = {
             "do_train" : True,
-            "do_eval" : True,
-            "do_predict" : True,
             "learning_rate" : self.learning_rate,
             "model_name_or_path": self.model_name,
             "ignore_mismatched_sizes": True,

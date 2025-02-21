@@ -442,7 +442,6 @@ class DragonBaseline(NLPAlgorithm):
             "gradient_checkpointing": self.gradient_checkpointing,
             "train_file": self.nlp_dataset_train_preprocessed_path,
             "validation_file": self.nlp_dataset_val_preprocessed_path,
-            "test_file": self.nlp_dataset_test_preprocessed_path,
             "output_dir": self.model_save_dir,
             "overwrite_output_dir": True,
             "save_total_limit" : 2,

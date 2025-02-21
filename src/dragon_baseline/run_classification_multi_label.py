@@ -21,7 +21,9 @@ import os
 import random
 import sys
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, NewType, Any
+
+DataClass = NewType("DataClass", Any)
 
 import datasets
 import evaluate
@@ -200,9 +202,9 @@ class DataTrainingArguments:
             if self.train_file is None or self.validation_file is None:
                 raise ValueError(" training/validation file or a dataset name.")
 
-            train_extension = self.train_file.split(".")[-1]
+            train_extension = self.train_file.suffix[1:]
             assert train_extension in ["csv", "json"], "`train_file` should be a csv or a json file."
-            validation_extension = self.validation_file.split(".")[-1]
+            validation_extension = self.validation_file.suffix[1:]
             assert (
                 validation_extension == train_extension
             ), "`validation_file` should have the same extension (csv or json) as `train_file`."
@@ -272,19 +274,24 @@ def get_label_list(raw_dataset, split="train") -> List[str]:
     label_list = [str(label) for label in label_list]
     return label_list
 
+def get_multi_label_classification_argument_parser():
+    return HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
 
-def main():
+def get_cli_arguments():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
-
-    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
+    parser = get_multi_label_classification_argument_parser()
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
         model_args, data_args, training_args = parser.parse_json_file(json_file=os.path.abspath(sys.argv[1]))
     else:
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+
+    return model_args, data_args, training_args
+
+def run_multi_label_classification(model_args : DataClass, data_args : DataClass, training_args : DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -354,24 +361,24 @@ def main():
     else:
         # Loading a dataset from your local files.
         # CSV/JSON training and evaluation files are needed.
-        data_files = {"train": data_args.train_file, "validation": data_args.validation_file}
+        data_files = {"train": str(data_args.train_file), "validation": str(data_args.validation_file)}
 
         # Get the test dataset: you can provide your own CSV/JSON test file
         if training_args.do_predict:
             if data_args.test_file is not None:
-                train_extension = data_args.train_file.split(".")[-1]
-                test_extension = data_args.test_file.split(".")[-1]
+                train_extension = data_args.train_file.suffix[1:]
+                test_extension = data_args.test_file.suffix[1:]
                 assert (
                     test_extension == train_extension
                 ), "`test_file` should have the same extension (csv or json) as `train_file`."
-                data_files["test"] = data_args.test_file
+                data_files["test"] = str(data_args.test_file)
             else:
                 raise ValueError("Need either a dataset name or a test file for `do_predict`.")
 
         for key in data_files.keys():
             logger.info(f"load a local file for {key}: {data_files[key]}")
 
-        if data_args.train_file.endswith(".csv"):
+        if data_args.train_file.suffix == ".csv":
             # Loading a dataset from local csv files
             raw_datasets = load_dataset(
                 "csv",
@@ -761,6 +768,9 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
 
+def main():
+    model_args, data_args, training_args = get_cli_arguments()
+    run_multi_label_classification(model_args, data_args, training_args)
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)

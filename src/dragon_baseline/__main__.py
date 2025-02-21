@@ -16,8 +16,8 @@ import sys
 
 from dragon_baseline.run_classification import main as parse_and_run_classification
 from dragon_baseline.run_classification_multi_label import \
-    main as run_classification_multi_label
-from dragon_baseline.run_ner import main as run_ner
+    main as parse_and_run_classification_multi_label
+from dragon_baseline.run_ner import main as parse_and_run_ner
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -25,10 +25,10 @@ if __name__ == '__main__':
 
     problem_type = sys.argv.pop(1)
     if problem_type == "ner":
-        run_ner()
+        parse_and_run_ner()
     elif problem_type == "classification":
         parse_and_run_classification()
     elif problem_type == "multi_label_classification":
-        run_classification_multi_label()
+        parse_and_run_classification_multi_label()
     else:
         raise ValueError(f"Unexpected problem type: {problem_type}.")

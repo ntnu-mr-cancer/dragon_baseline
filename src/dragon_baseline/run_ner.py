@@ -24,7 +24,9 @@ import os
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional, NewType, Any
+
+DataClass = NewType("DataClass", Any)
 
 import datasets
 import evaluate
@@ -220,20 +222,21 @@ class DataTrainingArguments:
             raise ValueError("Need either a dataset name or a training/validation file.")
         else:
             if self.train_file is not None:
-                extension = self.train_file.split(".")[-1]
+                extension = self.train_file.suffix[1:]
                 assert extension in ["csv", "json"], "`train_file` should be a csv or a json file."
             if self.validation_file is not None:
-                extension = self.validation_file.split(".")[-1]
+                extension = self.validation_file.suffix[1:]
                 assert extension in ["csv", "json"], "`validation_file` should be a csv or a json file."
         self.task_name = self.task_name.lower()
 
+def get_ner_argument_parser():
+    return HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
 
-def main():
+def get_cli_arguments():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
-
-    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
+    parser = get_ner_argument_parser()
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
@@ -241,6 +244,9 @@ def main():
     else:
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    return model_args, data_args, training_args
+
+def run_ner(model_args : DataClass, data_args : DataClass, training_args : DataClass):
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
     send_example_telemetry("run_ner", model_args, data_args)
@@ -313,14 +319,14 @@ def main():
     else:
         data_files = {}
         if data_args.train_file is not None:
-            data_files["train"] = data_args.train_file
-            extension = data_args.train_file.split(".")[-1]
+            data_files["train"] = str(data_args.train_file)
+            extension = data_args.train_file.suffix[1:]
         if data_args.validation_file is not None:
-            data_files["validation"] = data_args.validation_file
-            extension = data_args.validation_file.split(".")[-1]
+            data_files["validation"] = str(data_args.validation_file)
+            extension = data_args.validation_file.suffix[1:]
         if data_args.test_file is not None:
-            data_files["test"] = data_args.test_file
-            extension = data_args.test_file.split(".")[-1]
+            data_files["test"] = str(data_args.test_file)
+            extension = data_args.test_file.suffix[1:]
         raw_datasets = load_dataset(extension, data_files=data_files, cache_dir=model_args.cache_dir)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.
@@ -753,6 +759,9 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
 
+def main():
+    model_args, data_args, training_args = get_cli_arguments()
+    run_ner(model_args, data_args, training_args)
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)

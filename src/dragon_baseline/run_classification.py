@@ -22,6 +22,7 @@ import random
 import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, NewType, Any
+from .util import ArgumentsClass
 
 DataClass = NewType("DataClass", Any)
 
@@ -48,7 +49,7 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
-class DataTrainingArguments:
+class DataTrainingArguments(ArgumentsClass):
     """
     Arguments pertaining to what data we are going to input our model for training and eval.
 
@@ -192,6 +193,8 @@ class DataTrainingArguments:
     )
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
 
+    is_regression: Optional[bool] = field(init=False, default=None, metadata="internal field to store if the task is regression or not")
+
     def __post_init__(self):
         if self.dataset_name is None:
             if self.train_file is None or self.validation_file is None:
@@ -204,9 +207,8 @@ class DataTrainingArguments:
                 validation_extension == train_extension
             ), "`validation_file` should have the same extension (csv or json) as `train_file`."
 
-
 @dataclass
-class ModelArguments:
+class ModelArguments(ArgumentsClass):
     """
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune from.
     """
@@ -424,15 +426,14 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
             raw_datasets[key] = raw_datasets[key].rename_column(data_args.label_column_name, "label")
 
     # Trying to have good defaults here, don't hesitate to tweak to your needs.
-
-    is_regression = (
+    data_args.is_regression = (
         raw_datasets["train"].features["label"].dtype in ["float32", "float64"]
         if data_args.do_regression is None
         else data_args.do_regression
     )
 
     is_multi_label = False
-    if is_regression:
+    if data_args.is_regression:
         label_list = None
         num_labels = 1
         # regession requires float as label type, let's cast it if needed
@@ -493,7 +494,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         trust_remote_code=model_args.trust_remote_code,
     )
 
-    if is_regression:
+    if data_args.is_regression:
         config.problem_type = "regression"
         logger.info("setting problem type to regression")
     elif is_multi_label:
@@ -532,7 +533,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
 
     # for training ,we will update the config with label infos,
     # if do_train is not set, we will use the label infos in the config
-    if training_args.do_train and not is_regression:  # classification, training
+    if training_args.do_train and not data_args.is_regression:  # classification, training
         label_to_id = {v: i for i, v in enumerate(label_list)}
         # update config with label infos
         if model.config.label2id != label_to_id:
@@ -542,7 +543,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
             )
         model.config.label2id = label_to_id
         model.config.id2label = {id: label for label, id in label_to_id.items()}
-    elif not is_regression:  # classification, but not training
+    elif not data_args.is_regression:  # classification, but not training
         logger.info("using label infos in the model config")
         logger.info("label2id: {}".format(model.config.label2id))
         label_to_id = model.config.label2id
@@ -613,7 +614,6 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         if data_args.max_eval_samples is not None:
             max_eval_samples = min(len(eval_dataset), data_args.max_eval_samples)
             eval_dataset = eval_dataset.select(range(max_eval_samples))
-
     if training_args.do_predict or data_args.test_file is not None:
         if "test" not in raw_datasets:
             raise ValueError("--do_predict requires a test dataset")
@@ -636,7 +636,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         )
         logger.info(f"Using metric {data_args.metric_name} for evaluation.")
     else:
-        if is_regression:
+        if data_args.is_regression:
             metric = evaluate.load("mse", cache_dir=model_args.cache_dir)
             logger.info("Using mean squared error (mse) as regression score, you can use --metric_name to overwrite.")
         else:
@@ -651,7 +651,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
 
     def compute_metrics(p: EvalPrediction):
         preds = p.predictions[0] if isinstance(p.predictions, tuple) else p.predictions
-        if is_regression:
+        if data_args.is_regression:
             preds = np.squeeze(preds)
             result = metric.compute(predictions=preds, references=p.label_ids)
         elif is_multi_label:
@@ -718,7 +718,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         if "label" in predict_dataset.features:
             predict_dataset = predict_dataset.remove_columns("label")
         predictions = trainer.predict(predict_dataset, metric_key_prefix="predict").predictions
-        if is_regression:
+        if data_args.is_regression:
             predictions = np.squeeze(predictions)
         elif is_multi_label:
             # Convert logits to multi-hot encoding. We compare the logits to 0 instead of 0.5, because the sigmoid is not applied.
@@ -733,7 +733,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
                 logger.info("***** Predict results *****")
                 writer.write("index\tprediction\n")
                 for index, item in enumerate(predictions):
-                    if is_regression:
+                    if data_args.is_regression:
                         writer.write(f"{index}\t{item:3.3f}\n")
                     elif is_multi_label:
                         # recover from multi-hot encoding

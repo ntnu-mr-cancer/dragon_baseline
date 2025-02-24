@@ -25,6 +25,7 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, NewType, Any
+from .util import ArgumentsClass
 
 DataClass = NewType("DataClass", Any)
 
@@ -51,7 +52,7 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
-class ModelArguments:
+class ModelArguments(ArgumentsClass):
     """
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune from.
     """
@@ -99,7 +100,7 @@ class ModelArguments:
 
 
 @dataclass
-class DataTrainingArguments:
+class DataTrainingArguments(ArgumentsClass):
     """
     Arguments pertaining to what data we are going to input our model for training and eval.
     """

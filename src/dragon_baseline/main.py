@@ -15,6 +15,8 @@
 import re
 from pathlib import Path
 from typing import List, Union
+import json
+from dataclasses import dataclass, asdict
 
 import numpy as np
 import pandas as pd
@@ -45,6 +47,7 @@ __all__ = [
     "AutoModelForMultiHeadSequenceClassification",
     "AutoModelForMultiHeadSequenceRegression",
 ]
+
 
 class CustomLogScaler(TransformerMixin, BaseEstimator):
     def __init__(self):
@@ -210,12 +213,17 @@ class DragonBaseline(NLPAlgorithm):
         self.fp16 = (True if self.device.type == "cuda" else False)
         self.create_strided_training_examples = True
 
+        # Additional keyword arguments that will be passed to the config parser
+        self.kwargs = None
+
         # paths for saving the preprocessed data and model checkpoints
         self.nlp_dataset_train_preprocessed_path = Path(workdir / "nlp-dataset-train-preprocessed.json")
         self.nlp_dataset_val_preprocessed_path = Path(workdir / "nlp-dataset-val-preprocessed.json")
         self.nlp_dataset_test_preprocessed_path = Path(workdir / "nlp-dataset-test-preprocessed.json")
         self.model_save_dir = Path(workdir / "checkpoints")
 
+        self.config_save_dir = Path(workdir / "config")
+        
         # keep track of the common prefix of the reports, to remove it
         self.common_prefix = None
 
@@ -467,8 +475,20 @@ class DragonBaseline(NLPAlgorithm):
             config["metric_for_best_model"] = self.metric_for_best_model
         if self.fp16:
             config["fp16"] = True
+        
+        if self.kwargs is not None:
+            config.update(self.kwargs)
 
         model_args, data_args, training_args = parser.parse_dict(config)
+        # Save trainer, data and model configs
+        self.config_save_dir.mkdir(parents=True, exist_ok=True)
+        with open(self.config_save_dir / "model_args.json", "w") as f:
+            f.write(model_args.json)
+        with open(self.config_save_dir / "data_args.json", "w") as f:
+            f.write(data_args.json)
+        with open(self.config_save_dir / "training_args.json", "w") as f:
+            f.write(training_args.to_json_string())
+
         trainer(model_args, data_args, training_args)
 
     def predict_ner(self, *, df: pd.DataFrame) -> pd.DataFrame:

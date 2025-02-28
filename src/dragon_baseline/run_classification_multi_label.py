@@ -22,7 +22,7 @@ import random
 import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, NewType, Any
-from .util import ArgumentsClass
+from dragon_baseline.util import ArgumentsClass
 
 DataClass = NewType("DataClass", Any)
 
@@ -292,7 +292,7 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def run_multi_label_classification(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+def get_multi_label_classification_trainer(model_args: DataClass, data_args: DataClass, training_args: DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -322,21 +322,6 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
         + f"distributed training: {training_args.parallel_mode.value == 'distributed'}, 16-bits training: {training_args.fp16}"
     )
     logger.info(f"Training/evaluation parameters {training_args}")
-
-    # Detecting last checkpoint.
-    last_checkpoint = None
-    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
-        last_checkpoint = get_last_checkpoint(training_args.output_dir)
-        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
-            raise ValueError(
-                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
-                "Use --overwrite_output_dir to overcome."
-            )
-        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
-            logger.info(
-                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
-                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
-            )
 
     # Set seed before initializing model.
     set_seed(training_args.seed)
@@ -459,16 +444,17 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     # Infer the number of labels and label mapping from the dataset
     label_names = [lbl for lbl in raw_datasets["train"].features if lbl.startswith("label")]
     label_names.sort()  # Let's sort it for determinism
+    data_args.label_names = label_names
     if data_args.problem_type == "multi_label_regression":
-        num_labels = len(label_names)
+        data_args.num_labels = len(data_args.label_names)
     elif data_args.problem_type == "multi_label_multi_class_classification":
         # Trying to find the number of labels in a multi-label classification task
         # We have to deal with the scenario that labels appear in the validation/test set but not in the training set.
         # So we build the label list from the union of labels in train/val/test.
-        label_lists = [raw_datasets["train"].unique(lbl) for lbl in label_names]
+        label_lists = [raw_datasets["train"].unique(lbl) for lbl in data_args.label_names]
         for split in ["validation", "test"]:
             if split in raw_datasets:
-                val_or_test_label_lists = [raw_datasets[split].unique(lbl) for lbl in label_names]
+                val_or_test_label_lists = [raw_datasets[split].unique(lbl) for lbl in data_args.label_names]
                 for label_list, val_or_test_label_list in zip(label_lists, val_or_test_label_lists):
                     diff = set(val_or_test_label_list).difference(set(label_list))
                     if len(diff) > 0:
@@ -478,8 +464,8 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
                         )
                         label_list.extend(list(diff))
 
-        num_classes_per_label = [len(lbl_list) for lbl_list in label_lists]
-        num_labels = sum(num_classes_per_label)
+        data_args.num_classes_per_label = [len(lbl_list) for lbl_list in label_lists]
+        data_args.num_labels = sum(data_args.num_classes_per_label)
         for label_list in label_lists:
             label_list.sort()  # Let's sort it for determinism
     else:
@@ -490,7 +476,7 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     # download model & vocab.
     config = AutoConfig.from_pretrained(
         model_args.config_name if model_args.config_name else model_args.model_name_or_path,
-        num_labels=num_labels,
+        num_labels=data_args.num_labels,
         finetuning_task="text-classification",
         cache_dir=model_args.cache_dir,
         revision=model_args.model_revision,
@@ -509,7 +495,7 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     if data_args.problem_type == "multi_label_multi_class_classification":
         model_config = AutoModelForMultiHeadSequenceClassification.config_class(
             pretrained_model_name_or_path=model_args.model_name_or_path,
-            num_classes_per_label=num_classes_per_label,
+            num_classes_per_label=data_args.num_classes_per_label,
             from_tf=bool(".ckpt" in model_args.model_name_or_path),
             config=config,
             cache_dir=model_args.cache_dir,
@@ -521,7 +507,7 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     elif data_args.problem_type == "multi_label_regression":
         model_config = AutoModelForMultiHeadSequenceRegression.config_class(
             pretrained_model_name_or_path=model_args.model_name_or_path,
-            num_classes_per_label=num_labels,
+            num_classes_per_label=data_args.num_labels,
             from_tf=bool(".ckpt" in model_args.model_name_or_path),
             config=config,
             cache_dir=model_args.cache_dir,
@@ -685,6 +671,9 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     else:
         data_collator = None
 
+    data_args.train_dataset = train_dataset
+    data_args.eval_dataset = eval_dataset
+
     # Initialize our Trainer
     trainer = Trainer(
         model=model,
@@ -695,6 +684,25 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
         processing_class=tokenizer,
         data_collator=data_collator,
     )
+    return trainer
+
+def run_multi_label_classification(trainer:Trainer, model_args: DataClass, data_args: DataClass, training_args: DataClass):
+    # Detecting last checkpoint.
+    last_checkpoint = None
+    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
+        last_checkpoint = get_last_checkpoint(training_args.output_dir)
+        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
+            raise ValueError(
+                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
+                "Use --overwrite_output_dir to overcome."
+            )
+        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
+            logger.info(
+                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
+                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
+            )
+    
+    model = trainer.model
 
     # Training
     if training_args.do_train:
@@ -706,9 +714,9 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
         metrics = train_result.metrics
         max_train_samples = (
-            data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
+            data_args.max_train_samples if data_args.max_train_samples is not None else len(data_args.train_dataset)
         )
-        metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+        metrics["train_samples"] = min(max_train_samples, len(data_args.train_dataset))
         trainer.save_model()  # Saves the tokenizer too for easy upload
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
@@ -717,9 +725,9 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
     # Evaluation
     if training_args.do_eval:
         logger.info("*** Evaluate ***")
-        metrics = trainer.evaluate(eval_dataset=eval_dataset)
-        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)
-        metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
+        metrics = trainer.evaluate(eval_dataset=data_args.eval_dataset)
+        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(data_args.eval_dataset)
+        metrics["eval_samples"] = min(max_eval_samples, len(data_args.eval_dataset))
         trainer.log_metrics("eval", metrics)
         trainer.save_metrics("eval", metrics)
 
@@ -730,23 +738,23 @@ def run_multi_label_classification(model_args: DataClass, data_args: DataClass, 
             predict_dataset = predict_dataset.remove_columns("label")
         predictions = trainer.predict(predict_dataset, metric_key_prefix="predict").predictions
         if data_args.problem_type == "multi_label_regression":
-            if predictions.shape != (len(predict_dataset), num_labels):
+            if predictions.shape != (len(predict_dataset), data_args.num_labels):
                 raise ValueError(
-                    f"For regression, the predictions shape ({predictions.shape}) should be the number of samples x number of labels ({len(predict_dataset)}, {num_labels})."
+                    f"For regression, the predictions shape ({predictions.shape}) should be the number of samples x number of labels ({len(predict_dataset)}, {data_args.num_labels})."
                 )
         elif data_args.problem_type == "multi_label_multi_class_classification":
             predictions = [np.argmax(logits, axis=-1) for logits in predictions]
             predictions = np.stack(predictions, axis=1)
-            if predictions.shape != (len(predict_dataset), len(num_classes_per_label)):
+            if predictions.shape != (len(predict_dataset), len(data_args.num_classes_per_label)):
                 raise ValueError(
-                    f"For multi-label multi-class classification, the predictions shape ({predictions.shape}) should be the number of samples x number of labels ({len(predict_dataset)}, {len(num_classes_per_label)})."
+                    f"For multi-label multi-class classification, the predictions shape ({predictions.shape}) should be the number of samples x number of labels ({len(predict_dataset)}, {len(data_args.num_classes_per_label)})."
                 )
 
         output_predict_file = os.path.join(training_args.output_dir, "predict_results.txt")
         if trainer.is_world_process_zero():
             with open(output_predict_file, "w") as writer:
                 logger.info("***** Predict results *****")
-                prediction_names = [lbl.replace("label", "prediction") for lbl in label_names]
+                prediction_names = [lbl.replace("label", "prediction") for lbl in data_args.label_names]
                 writer.write("index\t" + "\t".join(prediction_names) + "\n")
                 for index, item in enumerate(predictions):
                     if data_args.problem_type == "multi_label_regression":

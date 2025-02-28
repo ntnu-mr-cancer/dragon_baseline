@@ -25,7 +25,7 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, NewType, Any
-from .util import ArgumentsClass
+from dragon_baseline.util import ArgumentsClass
 
 DataClass = NewType("DataClass", Any)
 
@@ -247,7 +247,8 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+def get_ner_trainer(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+# def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClass):
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
     send_example_telemetry("run_ner", model_args, data_args)
@@ -276,21 +277,6 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
         + f"distributed training: {training_args.parallel_mode.value == 'distributed'}, 16-bits training: {training_args.fp16}"
     )
     logger.info(f"Training/evaluation parameters {training_args}")
-
-    # Detecting last checkpoint.
-    last_checkpoint = None
-    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
-        last_checkpoint = get_last_checkpoint(training_args.output_dir)
-        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
-            raise ValueError(
-                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
-                "Use --overwrite_output_dir to overcome."
-            )
-        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
-            logger.info(
-                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
-                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
-            )
 
     # Set seed before initializing model.
     set_seed(training_args.seed)
@@ -628,12 +614,12 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
     if training_args.do_predict:
         if "test" not in raw_datasets:
             raise ValueError("--do_predict requires a test dataset")
-        predict_dataset = raw_datasets["test"]
+        data_args.predict_dataset = raw_datasets["test"]
         if data_args.max_predict_samples is not None:
-            max_predict_samples = min(len(predict_dataset), data_args.max_predict_samples)
-            predict_dataset = predict_dataset.select(range(max_predict_samples))
+            max_predict_samples = min(len(data_args.predict_dataset), data_args.max_predict_samples)
+            data_args.predict_dataset = data_args.predict_dataset.select(range(max_predict_samples))
         with training_args.main_process_first(desc="prediction dataset map pre-processing"):
-            predict_dataset = predict_dataset.map(
+            data_args.predict_dataset = data_args.predict_dataset.map(
                 tokenize_and_align_labels,
                 batched=True,
                 num_proc=data_args.preprocessing_num_workers,
@@ -680,6 +666,10 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
                 "accuracy": results["overall_accuracy"],
             }
 
+    data_args.train_dataset = train_dataset
+    data_args.eval_dataset = eval_dataset
+    data_args.label_list = label_list
+
     # Initialize our Trainer
     trainer = Trainer(
         model=model,
@@ -690,6 +680,24 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
         data_collator=data_collator,
         compute_metrics=compute_metrics,
     )
+
+    return trainer
+
+def run_ner(trainer: Trainer, model_args: DataClass, data_args: DataClass, training_args: DataClass):
+    # Detecting last checkpoint.
+    last_checkpoint = None
+    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
+        last_checkpoint = get_last_checkpoint(training_args.output_dir)
+        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
+            raise ValueError(
+                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
+                "Use --overwrite_output_dir to overcome."
+            )
+        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
+            logger.info(
+                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
+                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
+            )
 
     # Training
     if training_args.do_train:
@@ -703,9 +711,9 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
         trainer.save_model()  # Saves the tokenizer too for easy upload
 
         max_train_samples = (
-            data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
+            data_args.max_train_samples if data_args.max_train_samples is not None else len(data_args.train_dataset)
         )
-        metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+        metrics["train_samples"] = min(max_train_samples, len(data_args.train_dataset))
 
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
@@ -717,8 +725,8 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
 
         metrics = trainer.evaluate()
 
-        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)
-        metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
+        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(data_args.eval_dataset)
+        metrics["eval_samples"] = min(max_eval_samples, len(data_args.eval_dataset))
 
         trainer.log_metrics("eval", metrics)
         trainer.save_metrics("eval", metrics)
@@ -727,12 +735,12 @@ def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClas
     if training_args.do_predict:
         logger.info("*** Predict ***")
 
-        predictions, labels, metrics = trainer.predict(predict_dataset, metric_key_prefix="predict")
+        predictions, labels, metrics = trainer.predict(data_args.predict_dataset, metric_key_prefix="predict")
         predictions = np.argmax(predictions, axis=2)
 
         # Remove ignored index (special tokens)
         true_predictions = [
-            [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
+            [data_args.label_list[p] for (p, l) in zip(prediction, label) if l != -100]
             for prediction, label in zip(predictions, labels)
         ]
 

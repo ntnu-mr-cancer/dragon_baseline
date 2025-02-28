@@ -22,7 +22,7 @@ import random
 import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, NewType, Any
-from .util import ArgumentsClass
+from dragon_baseline.util import ArgumentsClass
 
 DataClass = NewType("DataClass", Any)
 
@@ -195,6 +195,16 @@ class DataTrainingArguments(ArgumentsClass):
 
     is_regression: Optional[bool] = field(init=False, default=None, metadata="internal field to store if the task is regression or not")
 
+    is_multi_label : Optional[bool] = field(init=False, default=None, metadata="internal field to store if the task is multilabel or not")
+
+    train_dataset : Optional[bool] = field(init=False, default=None, metadata="internal field to store the train dataset")
+
+    eval_dataset : Optional[bool] = field(init=False, default=None, metadata="internal field to store the eval dataset")
+
+    predict_dataset : Optional[bool] = field(init=False, default=None, metadata="internal field to store the predict dataset")
+    
+    label_list : Optional[bool] = field(init=False, default=None, metadata="internal field to store the label list")
+    
     def __post_init__(self):
         if self.dataset_name is None:
             if self.train_file is None or self.validation_file is None:
@@ -288,7 +298,8 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def run_classification(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+
+def get_classification_trainer(model_args: DataClass, data_args: DataClass, training_args: DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -319,20 +330,6 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     )
     logger.info(f"Training/evaluation parameters {training_args}")
 
-    # Detecting last checkpoint.
-    last_checkpoint = None
-    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
-        last_checkpoint = get_last_checkpoint(training_args.output_dir)
-        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
-            raise ValueError(
-                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
-                "Use --overwrite_output_dir to overcome."
-            )
-        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
-            logger.info(
-                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
-                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
-            )
 
     # Set seed before initializing model.
     set_seed(training_args.seed)
@@ -432,7 +429,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         else data_args.do_regression
     )
 
-    is_multi_label = False
+    data_args.is_multi_label = False
     if data_args.is_regression:
         label_list = None
         num_labels = 1
@@ -454,7 +451,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
 
     else:  # classification
         if raw_datasets["train"].features["label"].dtype == "list":  # multi-label classification
-            is_multi_label = True
+            data_args.is_multi_label = True
             logger.info("Label type is list, doing multi-label classification")
         # Trying to find the number of labels in a multi-label classification task
         # We have to deal with common cases that labels appear in the training set but not in the validation/test set.
@@ -497,7 +494,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     if data_args.is_regression:
         config.problem_type = "regression"
         logger.info("setting problem type to regression")
-    elif is_multi_label:
+    elif data_args.is_multi_label:
         config.problem_type = "multi_label_classification"
         logger.info("setting problem type to multi label classification")
     else:
@@ -574,7 +571,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         # Tokenize the texts
         result = tokenizer(examples["sentence"], padding=padding, max_length=max_seq_length, truncation=True)
         if label_to_id is not None and "label" in examples:
-            if is_multi_label:
+            if data_args.is_multi_label:
                 result["label"] = [multi_labels_to_ids(l) for l in examples["label"]]
             else:
                 result["label"] = [(label_to_id[str(l)] if l != -1 else -1) for l in examples["label"]]
@@ -617,11 +614,11 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     if training_args.do_predict or data_args.test_file is not None:
         if "test" not in raw_datasets:
             raise ValueError("--do_predict requires a test dataset")
-        predict_dataset = raw_datasets["test"]
+        data_args.predict_dataset = raw_datasets["test"]
         # remove label column if it exists
         if data_args.max_predict_samples is not None:
-            max_predict_samples = min(len(predict_dataset), data_args.max_predict_samples)
-            predict_dataset = predict_dataset.select(range(max_predict_samples))
+            max_predict_samples = min(len(data_args.predict_dataset), data_args.max_predict_samples)
+            data_args.predict_dataset = data_args.predict_dataset.select(range(max_predict_samples))
 
     # Log a few random samples from the training set:
     if training_args.do_train:
@@ -631,7 +628,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     if data_args.metric_name is not None:
         metric = (
             evaluate.load(data_args.metric_name, config_name="multilabel", cache_dir=model_args.cache_dir)
-            if is_multi_label
+            if data_args.is_multi_label
             else evaluate.load(data_args.metric_name, cache_dir=model_args.cache_dir)
         )
         logger.info(f"Using metric {data_args.metric_name} for evaluation.")
@@ -640,7 +637,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
             metric = evaluate.load("mse", cache_dir=model_args.cache_dir)
             logger.info("Using mean squared error (mse) as regression score, you can use --metric_name to overwrite.")
         else:
-            if is_multi_label:
+            if data_args.is_multi_label:
                 metric = evaluate.load("f1", config_name="multilabel", cache_dir=model_args.cache_dir)
                 logger.info(
                     "Using multilabel F1 for multi-label classification task, you can use --metric_name to overwrite."
@@ -654,7 +651,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         if data_args.is_regression:
             preds = np.squeeze(preds)
             result = metric.compute(predictions=preds, references=p.label_ids)
-        elif is_multi_label:
+        elif data_args.is_multi_label:
             preds = np.array([np.where(p > 0, 1, 0) for p in preds])  # convert logits to multi-hot encoding
             # Micro F1 is commonly used in multi-label classification
             result = metric.compute(predictions=preds, references=p.label_ids, average="micro")
@@ -674,6 +671,10 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     else:
         data_collator = None
 
+    data_args.train_dataset = train_dataset
+    data_args.eval_dataset = eval_dataset
+    data_args.label_list = label_list
+
     # Initialize our Trainer
     trainer = Trainer(
         model=model,
@@ -684,6 +685,23 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         processing_class=tokenizer,
         data_collator=data_collator,
     )
+    return trainer
+
+def run_classification(trainer: Trainer, model_args: DataClass, data_args: DataClass, training_args: DataClass):
+    # Detecting last checkpoint.
+    last_checkpoint = None
+    if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
+        last_checkpoint = get_last_checkpoint(training_args.output_dir)
+        if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
+            raise ValueError(
+                f"Output directory ({training_args.output_dir}) already exists and is not empty. "
+                "Use --overwrite_output_dir to overcome."
+            )
+        elif last_checkpoint is not None and training_args.resume_from_checkpoint is None:
+            logger.info(
+                f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
+                "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
+            )
 
     # Training
     if training_args.do_train:
@@ -695,9 +713,9 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
         metrics = train_result.metrics
         max_train_samples = (
-            data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
+            data_args.max_train_samples if data_args.max_train_samples is not None else len(data_args.train_dataset)
         )
-        metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+        metrics["train_samples"] = min(max_train_samples, len(data_args.train_dataset))
         trainer.save_model()  # Saves the tokenizer too for easy upload
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
@@ -706,9 +724,9 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
     # Evaluation
     if training_args.do_eval:
         logger.info("*** Evaluate ***")
-        metrics = trainer.evaluate(eval_dataset=eval_dataset)
-        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)
-        metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
+        metrics = trainer.evaluate(eval_dataset=data_args.eval_dataset)
+        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(data_args.eval_dataset)
+        metrics["eval_samples"] = min(max_eval_samples, len(data_args.eval_dataset))
         trainer.log_metrics("eval", metrics)
         trainer.save_metrics("eval", metrics)
 
@@ -720,7 +738,7 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
         predictions = trainer.predict(predict_dataset, metric_key_prefix="predict").predictions
         if data_args.is_regression:
             predictions = np.squeeze(predictions)
-        elif is_multi_label:
+        elif data_args.is_multi_label:
             # Convert logits to multi-hot encoding. We compare the logits to 0 instead of 0.5, because the sigmoid is not applied.
             # You can also pass `preprocess_logits_for_metrics=lambda logits, labels: nn.functional.sigmoid(logits)` to the Trainer
             # and set p > 0.5 below (less efficient in this case)
@@ -735,12 +753,12 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
                 for index, item in enumerate(predictions):
                     if data_args.is_regression:
                         writer.write(f"{index}\t{item:3.3f}\n")
-                    elif is_multi_label:
+                    elif data_args.is_multi_label:
                         # recover from multi-hot encoding
-                        item = [label_list[i] for i in range(len(item)) if item[i] == 1]
+                        item = [data_args.label_list[i] for i in range(len(item)) if item[i] == 1]
                         writer.write(f"{index}\t{item}\n")
                     else:
-                        item = label_list[item]
+                        item = data_args.label_list[item]
                         writer.write(f"{index}\t{item}\n")
         logger.info("Predict results saved at {}".format(output_predict_file))
     kwargs = {"finetuned_from": model_args.model_name_or_path, "tasks": "text-classification"}
@@ -752,7 +770,8 @@ def run_classification(model_args: DataClass, data_args: DataClass, training_arg
 
 def main():
     model_args, data_args, training_args = get_cli_arguments()
-    run_classification(model_args, data_args, training_args)
+    trainer = get_classification_trainer(model_args, data_args, training_args)
+    run_classification(trainer, model_args, data_args, training_args)
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)

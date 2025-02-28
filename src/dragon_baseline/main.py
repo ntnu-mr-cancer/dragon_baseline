@@ -36,11 +36,11 @@ from dragon_baseline.architectures.reg_multi_head import \
     AutoModelForMultiHeadSequenceRegression
 from dragon_baseline.nlp_algorithm import NLPAlgorithm, ProblemType
 from dragon_baseline.run_classification import (
-    get_classification_argument_parser, run_classification)
+    get_classification_argument_parser, run_classification, get_classification_trainer)
 from dragon_baseline.run_classification_multi_label import (
     get_multi_label_classification_argument_parser,
-    run_multi_label_classification)
-from dragon_baseline.run_ner import get_ner_argument_parser, run_ner
+    run_multi_label_classification, get_multi_label_classification_trainer)
+from dragon_baseline.run_ner import get_ner_argument_parser, get_ner_trainer, run_ner
 
 __all__ = [
     # expose the algorithm classes
@@ -226,6 +226,8 @@ class DragonBaseline(NLPAlgorithm):
         
         # keep track of the common prefix of the reports, to remove it
         self.common_prefix = None
+        
+        # setup the DragonBaseLine object
 
     @staticmethod
     def longest_common_prefix(strs: List[str]) -> str:
@@ -402,7 +404,7 @@ class DragonBaseline(NLPAlgorithm):
         self.prepare_labels_for_huggingface()
         self.shuffle_train_data()
 
-    def train(self):
+    def get_trainer(self):
         """Train the model."""
         # save the preprocessed data for training through command line interface of the HuggingFace library
         for path in [
@@ -423,15 +425,19 @@ class DragonBaseline(NLPAlgorithm):
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
             trainer_name = "ner"
             parser = get_ner_argument_parser()
-            trainer = run_ner
+            get_trainer = get_ner_trainer
+            self.train_function = run_ner
+
         elif self.task.target.problem_type in [ProblemType.MULTI_LABEL_REGRESSION, ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION]:
             trainer_name = "multi_label_classification"
             parser = get_multi_label_classification_argument_parser()
-            trainer = run_multi_label_classification
+            get_trainer = get_multi_label_classification_trainer
+            self.train_function = run_multi_label_classification
         else:
             trainer_name  = "classification"
             parser = get_classification_argument_parser()
-            trainer = run_classification
+            get_trainer = get_classification_trainer
+            self.train_function = run_classification
 
         config = {
             "do_train": True,
@@ -479,17 +485,21 @@ class DragonBaseline(NLPAlgorithm):
         if self.kwargs is not None:
             config.update(self.kwargs)
 
-        model_args, data_args, training_args = parser.parse_dict(config)
+        self.model_args, self.data_args, self.training_args = parser.parse_dict(config)
+        
         # Save trainer, data and model configs
         self.config_save_dir.mkdir(parents=True, exist_ok=True)
         with open(self.config_save_dir / "model_args.json", "w") as f:
-            f.write(model_args.json)
+            f.write(self.model_args.json)
         with open(self.config_save_dir / "data_args.json", "w") as f:
-            f.write(data_args.json)
+            f.write(self.data_args.json)
         with open(self.config_save_dir / "training_args.json", "w") as f:
-            f.write(training_args.to_json_string())
+            f.write(self.training_args.to_json_string())
 
-        trainer(model_args, data_args, training_args)
+        self.trainer = get_trainer(self.model_args, self.data_args, self.training_args)
+
+    def train(self):
+        self.train_function(self.trainer, self.model_args, self.data_args, self.training_args)
 
     def predict_ner(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data.
@@ -681,6 +691,12 @@ class DragonBaseline(NLPAlgorithm):
             else:
                 return self.predict_huggingface(df=df)
 
+    def setup(self):
+        self.load()
+        self.validate()
+        self.analyze()
+        self.preprocess()
+        self.get_trainer()
 
 if __name__ == "__main__":
     # Note: to debug (outside of Docker), you can set the input and output paths.

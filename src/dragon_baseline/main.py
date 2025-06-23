@@ -404,6 +404,12 @@ class DragonBaseline(NLPAlgorithm):
         self.prepare_labels_for_huggingface()
         self.shuffle_train_data()
 
+    def _get_tokenizer(self, pretrained_model_name_or_path: Union[str, Path]) -> AutoTokenizer:
+        """Get the tokenizer for the model."""
+        tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path, truncation_side=self.task.recommended_truncation_side)
+        tokenizer.model_max_length = self.max_seq_length
+        return tokenizer
+
     def get_trainer(self):
         """Train the model."""
         # save the preprocessed data for training through command line interface of the HuggingFace library
@@ -418,9 +424,8 @@ class DragonBaseline(NLPAlgorithm):
         self.df_test.to_json(self.nlp_dataset_test_preprocessed_path, orient="records")
 
         # load the tokenizer
-        tokenizer = AutoTokenizer.from_pretrained(self.model_name, truncation_side=self.task.recommended_truncation_side)
-        tokenizer.model_max_length = self.max_seq_length  # set the maximum sequence length, if not already set
-
+        tokenizer = self._get_tokenizer(self.model_name)
+        
         # train the model
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
             trainer_name = "ner"
@@ -501,6 +506,17 @@ class DragonBaseline(NLPAlgorithm):
     def train(self):
         self.train_function(self.trainer, self.model_args, self.data_args, self.training_args)
 
+    def load_pretreained_model(self):
+        if self.task.target.problem_type == ProblemType.MULTI_LABEL_REGRESSION:
+            self.trainer.model = AutoModelForMultiHeadSequenceRegression.from_pretrained(self.model_save_dir).to(self.device)
+        elif self.task.target.problem_type == ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION:
+            self.trainer.model = AutoModelForMultiHeadSequenceClassification.from_pretrained(self.model_save_dir).to(self.device)
+        elif self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
+            self.trainer.model = AutoModelForTokenClassification.from_pretrained(self.model_save_dir).to(self.device)
+        else:
+            self.trainer.model = AutoModelForSequenceClassification.from_pretrained(self.model_save_dir).to(self.device)
+
+
     def predict_ner(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data.
 
@@ -513,9 +529,9 @@ class DragonBaseline(NLPAlgorithm):
         We convert this to a list of labels, one for each word. An example is shown below:
         prediction = [B-SYMPTOM, I-SYMPTOM, B-DIAGNOSIS, I-DIAGNOSIS, I-DIAGNOSIS]
         """
-        tokenizer = AutoTokenizer.from_pretrained(self.model_save_dir, truncation_side=self.task.recommended_truncation_side)
-        tokenizer.model_max_length = self.max_seq_length  # set the maximum sequence length, if not already set
-        model = AutoModelForTokenClassification.from_pretrained(self.model_save_dir)
+        tokenizer = self._get_tokenizer(self.model_save_dir)
+        model = self.trainer.model
+
         classifier = TokenClassificationPipeline(
             model=model,
             tokenizer=tokenizer,
@@ -593,14 +609,8 @@ class DragonBaseline(NLPAlgorithm):
     def predict_huggingface(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data."""
         # load the model and tokenizer
-        tokenizer = AutoTokenizer.from_pretrained(self.model_save_dir, truncation_side=self.task.recommended_truncation_side)
-        tokenizer.model_max_length = self.max_seq_length  # set the maximum sequence length, if not already set
-        if self.task.target.problem_type == ProblemType.MULTI_LABEL_REGRESSION:
-            model = AutoModelForMultiHeadSequenceRegression.from_pretrained(self.model_save_dir).to(self.device)
-        elif self.task.target.problem_type == ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION:
-            model = AutoModelForMultiHeadSequenceClassification.from_pretrained(self.model_save_dir).to(self.device)
-        else:
-            model = AutoModelForSequenceClassification.from_pretrained(self.model_save_dir).to(self.device)
+        tokenizer = self._get_tokenizer(self.model_save_dir)
+        model = self.trainer.model
 
         # predict
         results = []

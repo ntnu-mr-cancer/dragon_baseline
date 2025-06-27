@@ -410,8 +410,14 @@ class DragonBaseline(NLPAlgorithm):
         self.prepare_labels_for_huggingface()
         self.shuffle_train_data()
 
-    def _get_tokenizer(self, pretrained_model_name_or_path: Union[str, Path]) -> AutoTokenizer:
+    def _get_tokenizer(self, pretrained_model_name_or_path: Union[str, Path], check_directory_for_vocab_files : bool = False) -> AutoTokenizer:
         """Get the tokenizer for the model."""
+        if check_directory_for_vocab_files:
+            # Check if the directory contains the necessary vocabulary files
+            vocab_files = ["vocab.txt", "tokenizer.json"]
+            if not any((Path(pretrained_model_name_or_path) / file).exists() for file in vocab_files):
+                raise ValueError(f"None of the expected vocabulary files {vocab_files} found in {pretrained_model_name_or_path}")
+
         tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path, truncation_side=self.task.recommended_truncation_side)
         tokenizer.model_max_length = self.max_seq_length
         return tokenizer
@@ -440,6 +446,7 @@ class DragonBaseline(NLPAlgorithm):
             self.train_function = run_ner
 
         elif self.task.target.problem_type in [ProblemType.MULTI_LABEL_REGRESSION, ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION]:
+            import ipdb; ipdb.set_trace()
             trainer_name = "multi_label_classification"
             parser = get_multi_label_classification_argument_parser()
             get_trainer = get_multi_label_classification_trainer
@@ -492,7 +499,7 @@ class DragonBaseline(NLPAlgorithm):
             config["metric_for_best_model"] = self.metric_for_best_model
         if self.fp16:
             config["fp16"] = True
-        
+
         if self.kwargs is not None:
             config.update(self.kwargs)
 
@@ -535,7 +542,7 @@ class DragonBaseline(NLPAlgorithm):
         We convert this to a list of labels, one for each word. An example is shown below:
         prediction = [B-SYMPTOM, I-SYMPTOM, B-DIAGNOSIS, I-DIAGNOSIS, I-DIAGNOSIS]
         """
-        tokenizer = self._get_tokenizer(self.model_save_dir)
+        tokenizer = self._get_tokenizer(self.model_save_dir, check_directory_for_vocab_files=True)
         model = self.trainer.model
 
         classifier = TokenClassificationPipeline(
@@ -615,7 +622,7 @@ class DragonBaseline(NLPAlgorithm):
     def predict_huggingface(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data."""
         # load the model and tokenizer
-        tokenizer = self._get_tokenizer(self.model_save_dir)
+        tokenizer = self._get_tokenizer(self.model_save_dir, check_directory_for_vocab_files=True)
         model = self.trainer.model
 
         # predict

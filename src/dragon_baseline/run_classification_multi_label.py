@@ -198,6 +198,8 @@ class DataTrainingArguments(ArgumentsClass):
     )
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
 
+    label2id : Optional[dict] = field(default=None, metadata={"help" : "Optional, a dictionary mapping labels to ids. If not provided, will be inferred from the dataset."})
+
     def __post_init__(self):
         if self.dataset_name is None:
             if self.train_file is None or self.validation_file is None:
@@ -445,6 +447,11 @@ def get_multi_label_classification_trainer(model_args: DataClass, data_args: Dat
     label_names = [lbl for lbl in raw_datasets["train"].features if lbl.startswith("label")]
     label_names.sort()  # Let's sort it for determinism
     data_args.label_names = label_names
+    if data_args.label2id is not None:
+        raise NotImplementedError(
+            "The `label2id` argument is currently not implemented for multilabel classification."
+        )
+
     if data_args.problem_type == "multi_label_regression":
         data_args.num_labels = len(data_args.label_names)
     elif data_args.problem_type == "multi_label_multi_class_classification":

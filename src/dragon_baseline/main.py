@@ -228,6 +228,12 @@ class DragonBaseline(NLPAlgorithm):
         self.common_prefix = None
         
         # setup the DragonBaseLine object
+    def set_or_update_kwargs(self, **kwargs):
+        """Set additional keyword arguments that will be passed to the config parser."""
+        if self.kwargs is not None:
+            self.kwargs.update(kwargs)
+        else:
+            self.kwargs = kwargs
 
     @staticmethod
     def longest_common_prefix(strs: List[str]) -> str:

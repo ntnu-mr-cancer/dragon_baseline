@@ -217,6 +217,8 @@ class DataTrainingArguments(ArgumentsClass):
         default=False,
         metadata={"help": "Whether to return all the entity levels during evaluation or just the overall ones."},
     )
+    
+    label2id : Optional[dict] = field(default=None, metadata={"help" : "Optional, a dictionary mapping labels to ids. If not provided, will be inferred from the dataset."})
 
     def __post_init__(self):
         if self.dataset_name is None and self.train_file is None and self.validation_file is None:
@@ -358,12 +360,17 @@ def get_ner_trainer(model_args: DataClass, data_args: DataClass, training_args: 
     # If the labels are of type ClassLabel, they are already integers and we have the map stored somewhere.
     # Otherwise, we have to get the list of labels manually.
     labels_are_int = isinstance(features[label_column_name].feature, ClassLabel)
-    if labels_are_int:
-        label_list = features[label_column_name].feature.names
-        label_to_id = {i: i for i in range(len(label_list))}
+    if data_args.label2id is None:
+        if labels_are_int:
+            label_list = features[label_column_name].feature.names
+            label_to_id = {i: i for i in range(len(label_list))}
+        else:
+            label_list = get_label_list(raw_datasets["train"][label_column_name])
+            label_to_id = {l: i for i, l in enumerate(label_list)}
     else:
-        label_list = get_label_list(raw_datasets["train"][label_column_name])
-        label_to_id = {l: i for i, l in enumerate(label_list)}
+        # If the user provided a label2id mapping, we use it to create the label list.
+        label_list = list(data_args.label2id.keys())
+        label_to_id = data_args.label2id
 
     num_labels = len(label_list)
 

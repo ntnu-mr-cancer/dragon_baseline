@@ -191,6 +191,9 @@ class DataTrainingArguments(ArgumentsClass):
     validation_file: Optional[str] = field(
         default=None, metadata={"help": "A csv or a json file containing the validation data."}
     )
+
+    label2id : Optional[dict] = field(default=None, metadata={"help" : "Optional, a dictionary mapping labels to ids. If not provided, will be inferred from the dataset."})
+
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
 
     is_regression: Optional[bool] = field(init=False, default=None, metadata="internal field to store if the task is regression or not")
@@ -204,6 +207,7 @@ class DataTrainingArguments(ArgumentsClass):
     predict_dataset : Optional[bool] = field(init=False, default=None, metadata="internal field to store the predict dataset")
     
     label_list : Optional[bool] = field(init=False, default=None, metadata="internal field to store the label list")
+
     
     def __post_init__(self):
         if self.dataset_name is None:
@@ -450,33 +454,39 @@ def get_classification_trainer(model_args: DataClass, data_args: DataClass, trai
                     raise error
 
     else:  # classification
-        if raw_datasets["train"].features["label"].dtype == "list":  # multi-label classification
-            data_args.is_multi_label = True
-            logger.info("Label type is list, doing multi-label classification")
-        # Trying to find the number of labels in a multi-label classification task
-        # We have to deal with common cases that labels appear in the training set but not in the validation/test set.
-        # So we build the label list from the union of labels in train/val/test.
-        label_list = get_label_list(raw_datasets, split="train")
-        for split in ["validation", "test"]:
-            if split in raw_datasets:
-                val_or_test_labels = get_label_list(raw_datasets, split=split)
-                diff = set(val_or_test_labels).difference(set(label_list))
-                if len(diff) > 0:
-                    # add the labels that appear in val/test but not in train, throw a warning
-                    logger.warning(
-                        f"Labels {diff} in {split} set but not in training set, adding them to the label list"
-                    )
-                    label_list += list(diff)
-        # if label is -1, we throw a warning and remove it from the label list
-        for label in label_list:
-            if label == -1:
-                logger.warning("Label -1 found in label list, removing it.")
-                label_list.remove(label)
+        if data_args.label2id is None:
+            # data_args.label2id = {}
+            if raw_datasets["train"].features["label"].dtype == "list":  # multi-label classification
+                data_args.is_multi_label = True
+                logger.info("Label type is list, doing multi-label classification")
+            # Trying to find the number of labels in a multi-label classification task
+            # We have to deal with common cases that labels appear in the training set but not in the validation/test set.
+            # So we build the label list from the union of labels in train/val/test.
+            label_list = get_label_list(raw_datasets, split="train")
+            for split in ["validation", "test"]:
+                if split in raw_datasets:
+                    val_or_test_labels = get_label_list(raw_datasets, split=split)
+                    diff = set(val_or_test_labels).difference(set(label_list))
+                    if len(diff) > 0:
+                        # add the labels that appear in val/test but not in train, throw a warning
+                        logger.warning(
+                            f"Labels {diff} in {split} set but not in training set, adding them to the label list"
+                        )
+                        label_list += list(diff)
+            # if label is -1, we throw a warning and remove it from the label list
+            for label in label_list:
+                if label == -1:
+                    logger.warning("Label -1 found in label list, removing it.")
+                    label_list.remove(label)
 
-        label_list.sort()
+            label_list.sort()
+        else:
+            label_list = list(data_args.label2id.keys())
+
         num_labels = len(label_list)
         if num_labels <= 1:
             raise ValueError("You need more than one label to do classification.")
+    
 
     # Load pretrained model and tokenizer
     # In distributed training, the .from_pretrained methods guarantee that only one local process can concurrently
@@ -531,22 +541,26 @@ def get_classification_trainer(model_args: DataClass, data_args: DataClass, trai
     # for training ,we will update the config with label infos,
     # if do_train is not set, we will use the label infos in the config
     if training_args.do_train and not data_args.is_regression:  # classification, training
-        label_to_id = {v: i for i, v in enumerate(label_list)}
-        # update config with label infos
-        if model.config.label2id != label_to_id:
-            logger.warning(
-                "The label2id key in the model config.json is not equal to the label2id key of this "
-                "run. You can ignore this if you are doing finetuning."
-            )
+        if data_args.label2id is None:
+            label_to_id = {v: i for i, v in enumerate(label_list)}
+            # update config with label infos
+            if model.config.label2id != label_to_id:
+                logger.warning(
+                    "The label2id key in the model config.json is not equal to the label2id key of this "
+                    "run. You can ignore this if you are doing finetuning."
+                )
+        else:
+            label_to_id = data_args.label2id
+
         model.config.label2id = label_to_id
         model.config.id2label = {id: label for label, id in label_to_id.items()}
+
     elif not data_args.is_regression:  # classification, but not training
         logger.info("using label infos in the model config")
         logger.info("label2id: {}".format(model.config.label2id))
         label_to_id = model.config.label2id
     else:  # regression
         label_to_id = None
-
     if data_args.max_seq_length > tokenizer.model_max_length:
         logger.warning(
             f"The max_seq_length passed ({data_args.max_seq_length}) is larger than the maximum length for the "

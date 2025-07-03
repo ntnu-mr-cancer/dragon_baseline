@@ -446,7 +446,6 @@ class DragonBaseline(NLPAlgorithm):
             self.train_function = run_ner
 
         elif self.task.target.problem_type in [ProblemType.MULTI_LABEL_REGRESSION, ProblemType.MULTI_LABEL_MULTI_CLASS_CLASSIFICATION]:
-            import ipdb; ipdb.set_trace()
             trainer_name = "multi_label_classification"
             parser = get_multi_label_classification_argument_parser()
             get_trainer = get_multi_label_classification_trainer

@@ -624,7 +624,7 @@ def get_multi_label_classification_trainer(model_args: DataClass, data_args: Dat
     # Log a few random samples from the training set:
     if training_args.do_train:
         for index in random.sample(range(len(train_dataset)), 3):
-            logger.info(f"Sample {index} of the training set: {train_dataset[index]}.")
+            logger.debug(f"Sample {index} of the training set: {train_dataset[index]}.")
 
     if data_args.metric_name is not None:
         metric = evaluate.load(

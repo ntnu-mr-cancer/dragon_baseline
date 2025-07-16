@@ -183,7 +183,7 @@ def balance_negative_samples(df: pd.DataFrame, label_name: str, seed: int) -> pd
 
 
 class DragonBaseline(NLPAlgorithm):
-    def __init__(self, input_path: Union[Path, str] = Path("/input"), output_path: Union[Path, str] = Path("/output"), workdir: Union[Path, str] = Path("/opt/app"), model_name: Union[str, Path] = "distilbert-base-multilingual-cased", **kwargs):
+    def __init__(self, input_path: Union[Path, str] = Path("/input"), output_path: Union[Path, str] = Path("/output"), workdir: Union[Path, str] = Path("/opt/app"), model_name: Union[str, Path] = "distilbert-base-multilingual-cased", model_kwargs : dict = None, **kwargs):
         """
         Baseline implementation for the DRAGON Challenge (https://dragon.grand-challenge.org/).
         This baseline uses the HuggingFace Transformers library (https://huggingface.co/transformers/).
@@ -200,7 +200,7 @@ class DragonBaseline(NLPAlgorithm):
         super().__init__(input_path=input_path, output_path=output_path, **kwargs)
 
         # default training settings
-        self.model_name = model_name
+        self.model_name_or_path = model_name
         self.per_device_train_batch_size = 4
         self.gradient_accumulation_steps = 2
         self.gradient_checkpointing = False
@@ -214,7 +214,9 @@ class DragonBaseline(NLPAlgorithm):
         self.create_strided_training_examples = True
 
         # Additional keyword arguments that will be passed to the config parser
-        self.kwargs = None
+        # self.kwargs = None
+        self.model_kwargs = model_kwargs if model_kwargs is not None else {}
+        self.update_default_training_settings(self.model_kwargs)
 
         # paths for saving the preprocessed data and model checkpoints
         self.nlp_dataset_train_preprocessed_path = Path(workdir / "nlp-dataset-train-preprocessed.json")
@@ -226,15 +228,20 @@ class DragonBaseline(NLPAlgorithm):
         
         # keep track of the common prefix of the reports, to remove it
         self.common_prefix = None
-        
-        # setup the DragonBaseLine object
+
+    def update_default_training_settings(self, model_kwargs : dict):
+        """If a key is provided in kwargs it should overwrite the default training settings."""
+        for key, value in model_kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
+
     def set_or_update_kwargs(self, **kwargs):
         """Set additional keyword arguments that will be passed to the config parser."""
-        if self.kwargs is not None:
-            self.kwargs.update(kwargs)
+        if self.model_kwargs is not None:
+            self.model_kwargs.update(kwargs)
         else:
-            self.kwargs = kwargs
-
+            self.model_kwargs = kwargs
+            
     @staticmethod
     def longest_common_prefix(strs: List[str]) -> str:
         if not strs:
@@ -436,7 +443,7 @@ class DragonBaseline(NLPAlgorithm):
         self.df_test.to_json(self.nlp_dataset_test_preprocessed_path, orient="records")
 
         # load the tokenizer
-        tokenizer = self._get_tokenizer(self.model_name)
+        tokenizer = self._get_tokenizer(self.model_name_or_path)
         
         # train the model
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_NER, ProblemType.MULTI_LABEL_NER]:
@@ -459,7 +466,7 @@ class DragonBaseline(NLPAlgorithm):
         config = {
             "do_train": True,
             "learning_rate": self.learning_rate,
-            "model_name_or_path": self.model_name,
+            "model_name_or_path": self.model_name_or_path,
             "ignore_mismatched_sizes": True,
             "num_train_epochs": self.num_train_epochs,
             "warmup_ratio": self.warmup_ratio,
@@ -499,8 +506,8 @@ class DragonBaseline(NLPAlgorithm):
         if self.fp16:
             config["fp16"] = True
 
-        if self.kwargs is not None:
-            config.update(self.kwargs)
+        if self.model_kwargs is not None:
+            config.update(self.model_kwargs)
 
         self.model_args, self.data_args, self.training_args = parser.parse_dict(config)
         

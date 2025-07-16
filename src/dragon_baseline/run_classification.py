@@ -453,11 +453,11 @@ def get_classification_trainer(model_args: DataClass, data_args: DataClass, trai
                     raise error
 
     else:  # classification
+        if raw_datasets["train"].features["label"].dtype == "list":  # multi-label classification
+            data_args.is_multi_label = True
+            logger.info("Label type is list, doing multi-label classification")
         if data_args.label2id is None:
             # data_args.label2id = {}
-            if raw_datasets["train"].features["label"].dtype == "list":  # multi-label classification
-                data_args.is_multi_label = True
-                logger.info("Label type is list, doing multi-label classification")
             # Trying to find the number of labels in a multi-label classification task
             # We have to deal with common cases that labels appear in the training set but not in the validation/test set.
             # So we build the label list from the union of labels in train/val/test.

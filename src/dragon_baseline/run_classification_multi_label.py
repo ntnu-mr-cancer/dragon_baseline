@@ -23,6 +23,7 @@ import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, NewType, Any
 from dragon_baseline.util import ArgumentsClass
+from functools import partial
 
 DataClass = NewType("DataClass", Any)
 
@@ -294,7 +295,7 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def get_multi_label_classification_trainer(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+def get_multi_label_classification_trainer(trainer_class, model_args: DataClass, data_args: DataClass, training_args: DataClass):
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -682,7 +683,7 @@ def get_multi_label_classification_trainer(model_args: DataClass, data_args: Dat
     data_args.eval_dataset = eval_dataset
 
     # Initialize our Trainer
-    trainer = Trainer(
+    trainer = partial(trainer_class,
         model=model,
         args=training_args,
         train_dataset=train_dataset if training_args.do_train else None,
@@ -732,7 +733,6 @@ def run_multi_label_classification(trainer:Trainer, model_args: DataClass, data_
     # Evaluation
     if training_args.do_eval:
         logger.info("*** Evaluate ***")
-        metrics = trainer.evaluate(eval_dataset=data_args.eval_dataset)
         max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(data_args.eval_dataset)
         metrics["eval_samples"] = min(max_eval_samples, len(data_args.eval_dataset))
         trainer.log_metrics("eval", metrics)

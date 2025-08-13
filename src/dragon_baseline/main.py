@@ -41,6 +41,7 @@ from dragon_baseline.run_classification_multi_label import (
     get_multi_label_classification_argument_parser,
     run_multi_label_classification, get_multi_label_classification_trainer)
 from dragon_baseline.run_ner import get_ner_argument_parser, get_ner_trainer, run_ner
+from dragon_baseline.trainer import DragonTrainer
 
 __all__ = [
     # expose the algorithm classes
@@ -212,13 +213,16 @@ class DragonBaseline(NLPAlgorithm):
         self.metric_for_best_model = "loss"
         self.fp16 = (True if self.device.type == "cuda" else False)
         self.create_strided_training_examples = True
+        self.trainer_class = DragonTrainer
 
         # Additional keyword arguments that will be passed to the config parser
         # self.kwargs = None
+        self._model_kwargs = {}
         self.model_kwargs = model_kwargs if model_kwargs is not None else {}
-        self.update_default_training_settings(self.model_kwargs)
+        # self.update_default_training_settings(self.model_kwargs)
 
         # paths for saving the preprocessed data and model checkpoints
+        self.workdir = Path(workdir)
         self.nlp_dataset_train_preprocessed_path = Path(workdir / "nlp-dataset-train-preprocessed.json")
         self.nlp_dataset_val_preprocessed_path = Path(workdir / "nlp-dataset-val-preprocessed.json")
         self.nlp_dataset_test_preprocessed_path = Path(workdir / "nlp-dataset-test-preprocessed.json")
@@ -228,6 +232,17 @@ class DragonBaseline(NLPAlgorithm):
         
         # keep track of the common prefix of the reports, to remove it
         self.common_prefix = None
+
+# We need the following to make sure we update the default training settings
+# from the model_kwargs dict also when subclassing DragonBaseline
+    @property
+    def model_kwargs(self) -> dict:
+        return self._model_kwargs
+
+    @model_kwargs.setter
+    def model_kwargs(self, model_kwargs: dict):
+        self._model_kwargs = model_kwargs or {}
+        self.update_default_training_settings(self._model_kwargs)
 
     def update_default_training_settings(self, model_kwargs : dict):
         """If a key is provided in kwargs it should overwrite the default training settings."""
@@ -427,6 +442,7 @@ class DragonBaseline(NLPAlgorithm):
 
         tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path, truncation_side=self.task.recommended_truncation_side)
         tokenizer.model_max_length = self.max_seq_length
+        tokenizer.save_pretrained(self.model_save_dir) # save the tokenizer to the model save directory as we need it during evaluation during the training loop
         return tokenizer
 
     def get_trainer(self):
@@ -520,7 +536,10 @@ class DragonBaseline(NLPAlgorithm):
         with open(self.config_save_dir / "training_args.json", "w") as f:
             f.write(self.training_args.to_json_string())
 
-        self.trainer = get_trainer(self.model_args, self.data_args, self.training_args)
+        # the get_trainer returns a partial call to the Trainer class where
+        # we also want to pass the dragon baseline. Hence the appended
+        # (self)
+        self.trainer = get_trainer(self.trainer_class, self.model_args, self.data_args, self.training_args)(self)
 
     def train(self):
         self.train_function(self.trainer, self.model_args, self.data_args, self.training_args)
@@ -628,9 +647,10 @@ class DragonBaseline(NLPAlgorithm):
     def predict_huggingface(self, *, df: pd.DataFrame) -> pd.DataFrame:
         """Predict the labels for the test data."""
         # load the model and tokenizer
-        tokenizer = self._get_tokenizer(self.model_save_dir, check_directory_for_vocab_files=True)
+        # tokenizer = self._get_tokenizer(self.model_save_dir, check_directory_for_vocab_files=True)
+        tokenizer = self.trainer.tokenizer
         model = self.trainer.model
-
+        model.eval()
         # predict
         results = []
         for _, row in tqdm(df.iterrows(), desc="Predicting", total=len(df)):

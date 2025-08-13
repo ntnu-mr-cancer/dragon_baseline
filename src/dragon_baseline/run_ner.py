@@ -26,6 +26,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, NewType, Any
 from dragon_baseline.util import ArgumentsClass
+from functools import partial
 
 DataClass = NewType("DataClass", Any)
 
@@ -249,7 +250,7 @@ def get_cli_arguments():
 
     return model_args, data_args, training_args
 
-def get_ner_trainer(model_args: DataClass, data_args: DataClass, training_args: DataClass):
+def get_ner_trainer(trainer_class, model_args: DataClass, data_args: DataClass, training_args: DataClass):
 # def run_ner(model_args: DataClass, data_args: DataClass, training_args: DataClass):
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -677,15 +678,14 @@ def get_ner_trainer(model_args: DataClass, data_args: DataClass, training_args: 
     data_args.eval_dataset = eval_dataset
     data_args.label_list = label_list
 
-    # Initialize our Trainer
-    trainer = Trainer(
+    trainer = partial(trainer_class,
         model=model,
         args=training_args,
         train_dataset=train_dataset if training_args.do_train else None,
         eval_dataset=eval_dataset if training_args.do_eval else None,
+        compute_metrics=compute_metrics,
         processing_class=tokenizer,
         data_collator=data_collator,
-        compute_metrics=compute_metrics,
     )
 
     return trainer
@@ -729,9 +729,6 @@ def run_ner(trainer: Trainer, model_args: DataClass, data_args: DataClass, train
     # Evaluation
     if training_args.do_eval:
         logger.info("*** Evaluate ***")
-
-        metrics = trainer.evaluate()
-
         max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(data_args.eval_dataset)
         metrics["eval_samples"] = min(max_eval_samples, len(data_args.eval_dataset))
 

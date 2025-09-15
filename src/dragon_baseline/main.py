@@ -214,6 +214,7 @@ class DragonBaseline(NLPAlgorithm):
         self.fp16 = (True if self.device.type == "cuda" else False)
         self.create_strided_training_examples = True
         self.trainer_class = DragonTrainer
+        self.scaler_params = None  # if provided, use these params to set the scaler instead of fitting a new one
 
         # Additional keyword arguments that will be passed to the config parser
         # self.kwargs = None
@@ -327,7 +328,7 @@ class DragonBaseline(NLPAlgorithm):
                 if self.task.target.label_name in df.columns:
                     df[self.task.target.label_name] = df[self.task.target.label_name].apply(lambda x: x[len(self.common_prefix):])
 
-    def scale_labels(self) -> pd.DataFrame:
+    def scale_labels(self) -> None:
         """Scale the labels."""
         if self.task.target.problem_type in [ProblemType.SINGLE_LABEL_REGRESSION, ProblemType.MULTI_LABEL_REGRESSION]:
             if self.task.target.skew > 1:
@@ -335,10 +336,21 @@ class DragonBaseline(NLPAlgorithm):
             else:
                 scaler = StandardScaler()
 
-            # fit the scaler on the training data
-            scaler = scaler.fit(self.df_train[self.task.target.label_name].explode().values.astype(float).reshape(-1, 1))
-            self.label_scalers[self.task.target.label_name] = scaler
+            if self.scaler_params == None:
+                # fit the scaler on the training data
+                scaler = scaler.fit(self.df_train[self.task.target.label_name].explode().values.astype(float).reshape(-1, 1))
+            else:
+                assert self.scaler_params and all(key in self.scaler_params for key in ["mean_", "scale_", "var_"]), f"Expected scaler_params to contain 'mean_', 'scale_' and 'var_', but got {self.scaler_params}"
+                if type(scaler) ==CustomLogScaler:
+                    scaler.standard_scaler.mean_ = np.atleast_1d(np.array(self.scaler_params["mean_"]))
+                    scaler.standard_scaler.scale_ = np.atleast_1d(np.array(self.scaler_params["scale_"]))
+                    scaler.standard_scaler.var_ = np.atleast_1d(np.array(self.scaler_params["var_"]))
+                else:
+                    scaler.mean_ = np.atleast_1d(np.array(self.scaler_params["mean_"]))
+                    scaler.scale_ = np.atleast_1d(np.array(self.scaler_params["scale_"]))
+                    scaler.var_ = np.atleast_1d(np.array(self.scaler_params["var_"]))
 
+            self.label_scalers[self.task.target.label_name] = scaler
             # scale the labels
             if self.task.target.problem_type == ProblemType.SINGLE_LABEL_REGRESSION:
                 self.df_train[self.task.target.label_name] = scaler.transform(self.df_train[self.task.target.label_name].values.reshape(-1, 1))
@@ -346,6 +358,30 @@ class DragonBaseline(NLPAlgorithm):
             elif self.task.target.problem_type == ProblemType.MULTI_LABEL_REGRESSION:
                 self.df_train[self.task.target.label_name] = self.df_train[self.task.target.label_name].apply(lambda x: np.ravel(scaler.transform(np.array(x).reshape(-1, 1))))
                 self.df_val[self.task.target.label_name] = self.df_val[self.task.target.label_name].apply(lambda x: np.ravel(scaler.transform(np.array(x).reshape(-1, 1))))
+
+    def save_scaler(self, outpath = None):
+        if self.label_scalers:
+            def safe_dump(obj):
+                """JSON dump that auto-converts NumPy and other non-serializables."""
+                def default(o):
+                    if isinstance(o, (np.integer,)):
+                        return int(o)
+                    if isinstance(o, (np.floating,)):
+                        return float(o)
+                    if isinstance(o, (np.ndarray,)):
+                        return o.tolist()
+                    return str(o)  # fallback: turn unknowns into strings
+                return json.dumps(obj, default=default)
+        
+            if type(self.label_scalers[self.task.target.label_name]) == CustomLogScaler:
+                scaler = self.label_scalers[self.task.target.label_name].standard_scaler
+            else:
+                scaler = self.label_scalers[self.task.target.label_name]
+            if outpath is None:
+                outpath = self.workdir / Path("label_scaler.json")
+
+            with open(outpath, "w") as f:
+                f.write(safe_dump(scaler.__dict__))
 
     def unscale_predictions(self, predictions: pd.DataFrame) -> pd.DataFrame:
         """Unscale the predictions."""
@@ -428,6 +464,7 @@ class DragonBaseline(NLPAlgorithm):
 
         # prepare the labels
         self.scale_labels()
+        self.save_scaler()
         self.add_dummy_test_labels()
         self.prepare_labels_for_huggingface()
         self.shuffle_train_data()
@@ -746,6 +783,13 @@ class DragonBaseline(NLPAlgorithm):
         self.analyze()
         self.preprocess()
         self.get_trainer()
+
+    def process(self):
+        self.setup()
+        self.train()
+        predictions = self.predict(df=self.df_test)
+        self.save(predictions)
+        self.verify_predictions()
 
 if __name__ == "__main__":
     # Note: to debug (outside of Docker), you can set the input and output paths.

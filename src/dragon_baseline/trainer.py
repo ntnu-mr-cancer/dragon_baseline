@@ -143,7 +143,6 @@ class DragonTrainer(Trainer):
         )
         
         eval_predictions = self.dragon_baseline.predict(df=self.dragon_baseline.df_val if self.dragon_baseline.data_args.max_eval_samples is None else self.dragon_baseline.df_val.sample(self.dragon_baseline.data_args.max_eval_samples))
-        
         hot_eval = HotEval(dragon_baseline=self.dragon_baseline, eval_predictions=eval_predictions)
         dragon_eval_results = float(hot_eval.evaluate())
         output.metrics.update({
@@ -151,6 +150,35 @@ class DragonTrainer(Trainer):
         })
         print(f"Dragon eval results: {dragon_eval_results}")
         
+        # import tempfile
+        # with tempfile.TemporaryDirectory() as tmpdirname:
+        #     eval_res_dir = Path(tmpdirname) / Path(self.dragon_baseline.workdir).name
+        #     eval_res_dir.mkdir(parents=True, exist_ok=True)
+        #     hot_eval.save(predictions=eval_predictions, path=eval_res_dir / Path("nlp-predictions-dataset.json"))
+        #     # writ gt to same dir
+        #     val_gt_path = Path(self.dragon_baseline.dataset_val_path)
+
+        #     task_name = self.dragon_baseline.task.task_name
+        #     task, fold = Path(self.dragon_baseline.workdir).name.split('-')
+        #     task = task.split('_')[0].replace('Task', '')
+        #     fold = int(fold.replace('fold', ''))
+
+        #     with open(val_gt_path, 'r') as f:
+        #         val_gt_path = json.load(f)
+        #         json.dump(val_gt_path, open(eval_res_dir / Path(task_name + '.json'), 'w'))
+
+        #     dragon_eval = DragonEval(
+        #         ground_truth_path=eval_res_dir,
+        #         predictions_path=Path(tmpdirname),
+        #         folds=[fold],
+        #         tasks=[task_name],
+        #         output_file=eval_res_dir / Path("dragon_eval_val_res.json"),
+        #     )
+        #     dragon_eval.evaluate()
+        #     output.metrics.update({
+        #         f"{metric_key_prefix}_dragon_cold": dragon_eval._scores[task_name][self.dragon_baseline.workdir.name],
+        #     })
+
         self.log(output.metrics)
 
         self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, output.metrics)

@@ -378,6 +378,8 @@ class DragonBaseline(NLPAlgorithm):
             else:
                 scaler = self.label_scalers[self.task.target.label_name]
             if outpath is None:
+                if not(Path(self.workdir).exists()):
+                    Path(self.workdir).mkdir(parents=True, exist_ok=True)
                 outpath = self.workdir / Path("label_scaler.json")
 
             with open(outpath, "w") as f:
@@ -446,7 +448,7 @@ class DragonBaseline(NLPAlgorithm):
 
             # select an equal number of samples with a labeled entity, as ones with no labeled entity
             self.df_train = balance_negative_samples(df=self.df_train, label_name=self.task.target.label_name, seed=self.task.jobid)
-            self.df_val = balance_negative_samples(df=self.df_val, label_name=self.task.target.label_name, seed=self.task.jobid)
+            # self.df_val = balance_negative_samples(df=self.df_val, label_name=self.task.target.label_name, seed=self.task.jobid)
 
             # add block number to the text parts
             for df in [self.df_train, self.df_val, self.df_test]:
@@ -606,7 +608,6 @@ class DragonBaseline(NLPAlgorithm):
         """
         tokenizer = self._get_tokenizer(self.model_save_dir, check_directory_for_vocab_files=True)
         model = self.trainer.model
-
         classifier = TokenClassificationPipeline(
             model=model,
             tokenizer=tokenizer,
@@ -751,7 +752,7 @@ class DragonBaseline(NLPAlgorithm):
                 preds = [np.argmax(p) for p in logits]
                 prediction = {
                     self.task.target.prediction_name: [
-                        id2label[str(p)]
+                        id2label[int(p)]
                         for p, id2label in zip(preds, model.config.id2labels)
                     ]
                 }

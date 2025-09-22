@@ -171,10 +171,6 @@ scikit-learn==1.5.2
     # via
     #   -r requirements.in
     #   dragon-eval
-<<<<<<< HEAD
-    #   evalutils
-=======
->>>>>>> ea18bb136c158c31c52648eb11fed17220af61e0
     #   seqeval
 scipy==1.15.2
     # via scikit-learn
@@ -182,11 +178,6 @@ seqeval==1.2.2
     # via
     #   -r requirements.in
     #   dragon-eval
-<<<<<<< HEAD
-simpleitk==2.4.1
-    # via evalutils
-=======
->>>>>>> ea18bb136c158c31c52648eb11fed17220af61e0
 six==1.17.0
     # via python-dateutil
 sympy==1.13.1

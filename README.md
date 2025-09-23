@@ -1,26 +1,29 @@
 # DRAGON Baseline Algorithm
 
-This repository provides the baseline code for the [DRAGON Challenge](https://dragon.grand-challenge.org).
+This repository provides updated baseline code for the [DRAGON Challenge](https://dragon.grand-challenge.org). 
 
-If you are using DRAGON resources, please cite the following article:
+
+If you are using this DRAGON resource, please cite the following two articles:
 
 > J. S. Bosma, K. Dercksen, L. Builtjes, R. André, C, Roest, S. J. Fransen, C. R. Noordman, M. Navarro-Padilla, J. Lefkes, N. Alves, M. J. J. de Grauw, L. van Eekelen, J. M. A. Spronck, M. Schuurmans, A. Saha, J. J. Twilt, W. Aswolinskiy, W. Hendrix, B. de Wilde, D. Geijs, J. Veltman, D. Yakar, M. de Rooij, F. Ciompi, A. Hering, J. Geerdink, and H. Huisman on behalf of the DRAGON consortium. The DRAGON benchmark for clinical NLP. *npj Digital Medicine* 8, 289 (2025). [https://doi.org/10.1038/s41746-025-01626-x](https://doi.org/10.1038/s41746-025-01626-x)
 
+>PENDING FedDragon paper.
+
 Download the citation file for your reference manager: [BibTeX](https://github.com/DIAGNijmegen/dragon/blob/main/citation.bib) | [RIS](https://github.com/DIAGNijmegen/dragon/blob/main/citation.ris)
 
-##
+## How does this baseline differ from the original
+This baseline was developed as part of the work to make a federated subchallenge for the DRAGON challenge. The main difference between this code and the original baseline code is the addition of a [custom trainer class](src/dragon_baseline/trainer.py). This trainer adds on-the-fly validation during training using [dragon_eval](https://github.com/DIAGNijmegen/dragon_eval) — the same metric that is later used to assess test-set performance. This enables more robust model selection during training and allows early stopping to be implemented to reduce training times.
 
 ## Installation instructions
 
 We strongly recommend that you install the DRAGON baseline in a virtual environment! Pip or anaconda are both fine. Use a recent version of Python! 3.9 or newer is guaranteed to work!
 
 ```bash
-pip install dragon_baseline
+pip install git+https://github.com/ntnu-mr-cancer/dragon_baseline.git
 ```
 
-## How to get started as AI developer?
-Please see the [dedicated development guide](documentation/development_guide.md) to get started with creating new solutions!
-
+## How to get started as an AI developer
+Please see the [dedicated development guide](documentation/development_guide.md) to get started with creating new solutions.
 
 ## What is the DRAGON benchmark?
 
@@ -28,8 +31,7 @@ The DRAGON benchmark serves as an extensive resource for testing and advancing c
 
 
 ## Accessing the reports in the DRAGON benchmark
-All data, including clinical reports and associated labels, are stored in a sequestered manner on the Grand Challenge platform. This prevents users from directly accessing or viewing the data, preserving patient privacy by design. While participants cannot directly download or see the data, they do have full functional access for model training and validation through the platform interface. Keeping the test labels hidden helps to mitigate potential biases. To aid the development of solutions we provide synthetic datasets (see the [development guide](documentation/development_guide.md)) for all task types and provide an example case for each of the tasks in the DRAGON manuscript and <a href="https://github.com/DIAGNijmegen/dragon_sample_reports" target="_blank">here</a>.
-
+All data, including clinical reports and associated labels, are stored in a sequestered manner on the Grand Challenge platform. This prevents users from directly accessing or viewing the data, preserving patient privacy by design. While participants cannot directly download or view the data, they do have full, functional access for model training and validation through the platform interface. Keeping the test labels hidden helps to mitigate potential biases. To aid the development of solutions, we provide synthetic datasets (see the [development guide](documentation/development_guide.md)) for all task types and provide an example case for each task; examples are available in the DRAGON manuscript and here: <a href="https://github.com/DIAGNijmegen/dragon_sample_reports" target="_blank">sample reports</a>.
 
 ## What can the DRAGON algorithm do for you?
 If you are a domain scientist (radiologist, pathologist, ...) looking to automate your own data curation, the DRAGON algorithm provides an out-of-the-box solution that is all but guaranteed to provide excellent results on your individual dataset. Simply convert your dataset into the DRAGON format and enjoy the power of AI - no expertise required!
@@ -62,7 +64,7 @@ If you want to use an existing algorithm to annotate new data, you need:
 2. Manually annotated validation data (provided by you)
 3. The data you want to annotate (we call this "test data" because in the context of the benchmark, the algorithm will provide predictions for the test data)
 
-First, prepare the data in the correct dataset convention: please see the [dataset conversion](documentation/dataset_convention.md) for more information.
+First, prepare the data in the correct dataset convention: please see the [dataset convention](documentation/dataset_convention.md) for more information.
 
 You can use the algorithm on Grand Challenge or locally. Either way, the algorithm will fit the model to your training data, have it select the model checkpoint based on your validation data, and then produce the model predictions for the "test data". To use the algorithm on Grand Challenge, navigate to the leaderboard and select the algorithm you want [PENDING].
 
@@ -81,7 +83,13 @@ Model performance for the best model (<a href="https://dragon.grand-challenge.or
 For the full performance breakdown of each model, see the [evaluation results](documentation/evaluation_results.md).
 
 ## Managed By
+This fork is managed by:
+
+CIMORe group, Norwegian University of Science and Technology, Trondheim Norway
+
+The original repository is managed by:
+
 Diagnostic Image Analysis Group, Radboud University Medical Center, Nijmegen, The Netherlands
 
 ## Contact Information
-Joeran Bosma: Joeran.Bosma@radboudumc.nl
+Bendik Skarre Abrahamsen: bendik.s.abrahamsen@ntnu.no
